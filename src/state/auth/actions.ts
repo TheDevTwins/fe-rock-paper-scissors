@@ -1,4 +1,4 @@
-import { ApiStateSingle, StateManager } from 'services';
+import { ApiStateSingle, StateManager } from 'redux-state-manager';
 import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
 import * as types from './types';

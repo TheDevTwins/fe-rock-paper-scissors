@@ -1,7 +1,7 @@
 import {
   createSocketConnectAction,
   createSocketDisconnectAction,
-} from 'services';
+} from 'redux-state-manager';
 
 const klassUrl = '/klass/';
 const klassDesc = 'klass';

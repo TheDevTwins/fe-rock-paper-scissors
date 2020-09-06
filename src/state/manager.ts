@@ -1,4 +1,4 @@
-import { GlobalManager } from 'services';
+import { GlobalManager } from 'redux-state-manager';
 
 import { authManager } from './auth/actions';
 
