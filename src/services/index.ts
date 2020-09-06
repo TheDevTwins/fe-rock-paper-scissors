@@ -1,1 +1,1 @@
-export * from './Api';
+export const none = null;
