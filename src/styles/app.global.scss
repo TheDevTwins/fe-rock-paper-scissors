@@ -1,0 +1,11 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+@import '~antd/dist/antd.min.css';
+@import 'modules/layout';
+@import 'modules/table.scss';
+@import 'modules/settings.scss';
+@import 'modules/data-entry';
+@import 'modules/breadcrumb';
+@import 'modules/writer.scss';

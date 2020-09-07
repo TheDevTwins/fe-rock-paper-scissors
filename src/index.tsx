@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { HelmetProvider } from 'react-helmet-async';
 
-import 'antd/dist/antd.css';
+import './styles/app.global.scss';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';

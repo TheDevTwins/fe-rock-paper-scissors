@@ -1,0 +1,38 @@
+.excel-writer {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+
+  .modal-button {
+    margin: 0 auto;
+    width: 100px;
+  }
+}
+
+
+.modal {
+  display: flex;
+  justify-content: center;
+
+  .radio-wrapper {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .line-break{
+    border-top: 0 solid #eee;
+    margin-top: 20px;
+  }
+
+  .step-2-wrapper{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+
+    .radio-input {
+      width: 180px;
+    }
+  }
+}
