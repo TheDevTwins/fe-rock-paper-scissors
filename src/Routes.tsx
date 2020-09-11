@@ -7,7 +7,17 @@ import { Home } from './views';
 const Routes: React.FC = () => {
   const dispatch = useDispatch();
 
-  return <Home />;
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/session/:id">
+        {/* something */}
+      </Route>
+      <Redirect to="/" />
+    </Switch>
+  );
 };
 
 export default Routes;
