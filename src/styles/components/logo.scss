@@ -1,0 +1,13 @@
+.logo {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+
+    &__segment {
+        display: inline;
+
+        &:nth-child(1) {color: #fff;}
+        &:nth-child(2) {color: #fff;}
+        &:nth-child(3) {color: #fff;}
+    }
+}

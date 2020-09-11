@@ -3,11 +3,9 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 @import '~antd/dist/antd.min.css';
-@import 'modules/layout';
-@import 'modules/table.scss';
-@import 'modules/settings.scss';
-@import 'modules/data-entry';
-@import 'modules/breadcrumb';
-@import 'modules/writer.scss';
 
-@import 'components/home.scss';
+@import 'base/variables.scss';
+
+@import 'components/logo.scss';
+
+@import 'views/home.scss';

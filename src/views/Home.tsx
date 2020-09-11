@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Logo } from '../components/index';
+
 const Home: React.FC = () => {
   return (
     <div className="home">
-      {/* <Logo />
+      <Logo />
 
-    <RpsAnimation /> */}
+      {/* <RpsAnimation /> */}
 
       <div className="home__btn">New Game</div>
     </div>
