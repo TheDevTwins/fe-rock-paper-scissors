@@ -11,7 +11,9 @@ const Home: React.FC = () => {
       </header>
       <main className="home__container">
         {/* <RpsAnimation /> */}
-        <div className="home__btn">New Game</div>
+        <div className="home__btn">
+          <span className="home__btn-text">New Game</span>
+        </div>
       </main>
     </div>
   );

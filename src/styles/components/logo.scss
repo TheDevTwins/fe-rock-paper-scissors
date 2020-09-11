@@ -1,7 +1,8 @@
 .logo {
     display: inline-block;
     font-size: 3rem;
-    font-weight: bold;
+    font-family: $font-2;
+    text-transform: capitalize;
 
     &__segment {
         display: inline;
@@ -9,5 +10,9 @@
         &:nth-child(1) {color: #fff;}
         &:nth-child(2) {color: #fff;}
         &:nth-child(3) {color: #fff;}
+
+        &::after {
+            content: "."
+        }
     }
 }
