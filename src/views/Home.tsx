@@ -6,11 +6,13 @@ import { Logo } from '../components/index';
 const Home: React.FC = () => {
   return (
     <div className="home">
-      <Logo />
-
-      {/* <RpsAnimation /> */}
-
-      <div className="home__btn">New Game</div>
+      <header className="home__header">
+        <Logo />
+      </header>
+      <main className="home__container">
+        {/* <RpsAnimation /> */}
+        <div className="home__btn">New Game</div>
+      </main>
     </div>
   );
 };
