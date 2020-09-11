@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Logo } from '../components/index';
+import { Logo, RpsAnimation } from '../components/index';
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const Home: React.FC = () => {
         <Logo />
       </header>
       <main className="home__container">
-        {/* <RpsAnimation /> */}
+        <RpsAnimation />
         <div className="home__btn">
           <span className="home__btn-text">New Game</span>
         </div>

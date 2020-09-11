@@ -1,1 +1,1 @@
-export const none = null;
+export { default as useInterval } from './useInterval';
