@@ -67,9 +67,9 @@ const RpsAnimation: React.FC = () => {
   ) => {
     console.log({ iconType });
     return iconArr.map((icon, i) => {
-      const fadeOut = icon.visible && !icon.fadeOut ? 1 : 0;
       const fadeIn = iconType === i ? 1 : 0;
-      const visible = iconType === i ? 1 : 0;
+      const fadeOut = !fadeIn && icon.visible && !icon.fadeOut ? 1 : 0;
+      const visible = iconType === i || fadeOut === 1 ? 1 : 0;
       return { index: i, fadeOut: fadeOut, fadeIn: fadeIn, visible: visible };
     });
   };
