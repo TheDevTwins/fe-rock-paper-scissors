@@ -1,0 +1,32 @@
+.lobby{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: 5rem 0;
+    column-gap: 5rem;
+    row-gap: 5rem;
+    
+    &__panels {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 4fr 8fr;
+        column-gap: 5rem;
+    }
+
+    &__panel {
+        height: 100%;
+        background-color: rgba(#fff, 1);
+        border-radius: 3rem;
+        padding: 3rem;
+    }
+
+    &__title {
+        color: $color-blue;
+        font-size: 2rem;
+        letter-spacing: .1red;
+        font-family: $font-2;
+        line-height: 1;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $color-blue;
+    }
+}

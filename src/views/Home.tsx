@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   const history = useHistory();
 
   return (
-    <div className="home">
+    <div className="home defaultBg">
       <header className="home__header">
         <Logo />
       </header>

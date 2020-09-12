@@ -4,7 +4,7 @@
     align-items: center;
 
     & > *:not(:last-child) {
-        margin-right: 10rem;
+        margin-right: 15rem;
     }
 
     &__list {
@@ -15,7 +15,7 @@
     }
 
     &__img {
-        height: 15rem;
+        height: 25rem;
         width: auto;
 
         grid-area: 1 / 1 / 2 / 2;

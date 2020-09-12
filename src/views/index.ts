@@ -1,2 +1,2 @@
 export { default as Home } from './Home';
-export { default as Waiting } from './Waiting';
+export { default as Lobby } from './Lobby';

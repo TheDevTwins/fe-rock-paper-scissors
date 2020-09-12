@@ -6,8 +6,15 @@
 
 @import 'base/variables.scss';
 @import 'base/animations.scss';
+@import 'base/base.scss';
+@import 'base/typography.scss';
+
+@import 'layout/wrapper.scss';
+@import 'layout/grid.scss';
 
 @import 'components/logo.scss';
 @import 'components/rps.scss';
 
 @import 'views/home.scss';
+@import 'views/lobby.scss';
+

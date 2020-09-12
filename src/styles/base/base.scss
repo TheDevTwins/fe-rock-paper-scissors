@@ -13,3 +13,15 @@ body {
     font-family: $font-1;
     box-sizing: border-box;
 }
+
+.defaultBg {
+    background-image: linear-gradient(to right bottom,
+        $color-blue,
+        $color-purple);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &--fixed {
+        background-position: fixed;
+    }
+}

@@ -1,12 +1,6 @@
 .home {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(to right bottom,
-        $color-blue,
-        $color-purple);
-    background-size: cover;
-    background-repeat: no-repeat;
-
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -32,8 +26,7 @@
     &__btn {
         display: inline-block;
         background-color: #fff;
-        border: .15em solid #fff;
-        padding: 1rem 2rem;
+        padding: 1.5rem 3rem;
         cursor: pointer;
         position: relative;
         transition: all .4s;
@@ -45,7 +38,7 @@
         }
 
         &-text {
-            font-size: 1.6rem;
+            font-size: 3rem;
             font-family: $font-2;
             text-transform: uppercase;
             font-weight: 400;
