@@ -14,8 +14,8 @@ const App: React.FC = () => {
         defer={false}
         htmlAttributes={{ lang: 'en' }}
         encodeSpecialCharacters={true}
-        defaultTitle={'Portfolio Manager'}
-        titleTemplate={`%s | PM`}
+        defaultTitle={'Rock Paper Scissors'}
+        titleTemplate={`%s | RPS`}
         titleAttributes={{ itemprop: 'name', lang: 'en' }}
       />
       <Routes />

@@ -1,6 +1,6 @@
 {
-  "short_name": "pm",
-  "name": "Portfolio Manager Simulator",
+  "short_name": "rps",
+  "name": "Rock Paper Scissors",
   "icons": [
     {
       "src": "favicon.ico",
