@@ -18,6 +18,9 @@
         background-color: rgba(#fff, 1);
         border-radius: 3rem;
         padding: 3rem;
+
+        display: grid;
+        grid-template-rows: auto 1fr;
     }
 
     &__title {
@@ -28,5 +31,7 @@
         line-height: 1;
         padding-bottom: 1rem;
         border-bottom: 1px solid $color-blue;
+
+        margin-bottom: 5rem;
     }
 }

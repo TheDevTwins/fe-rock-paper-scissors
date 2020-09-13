@@ -1,0 +1,16 @@
+.avatar {
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    background-color: #f3f3f3;
+    border-radius: 50%;
+    position: relative;
+
+    &__container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}

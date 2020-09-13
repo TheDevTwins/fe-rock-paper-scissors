@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Logo } from 'components';
+import UserCustomization from './UserCustomization';
 
 const Lobby: React.FC = () => {
   return (
@@ -11,7 +13,7 @@ const Lobby: React.FC = () => {
         <div className="lobby__panels">
           <div className="lobby__panel">
             <div className="lobby__title">Player</div>
-            {/* <Player /> */}
+            <UserCustomization />
           </div>
           <div className="lobby__panel">
             <div className="lobby__title">Lobby</div>
