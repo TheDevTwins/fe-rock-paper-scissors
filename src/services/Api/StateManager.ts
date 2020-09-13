@@ -31,6 +31,9 @@ export default class StateManager {
   public socketEvents: {
     [key: string]: ActionCreator<any>;
   };
+  public socketActions: {
+    [key: string]: ActionCreator<any>;
+  };
   readonly socketUrl: string;
   readonly apiUrl: string;
 
@@ -57,6 +60,7 @@ export default class StateManager {
     this.moduleName = props.moduleName;
     this.reducer = reducerWithInitialState(props.initialState);
     this.socketEvents = {};
+    this.socketActions = {};
 
     this.actionCreator = actionCreatorFactory(this.moduleName);
   }
@@ -172,5 +176,17 @@ export default class StateManager {
         onReceive(draft, payload as Result);
       })
     );
+  }
+
+  public createSocketAction<Payload>(actionName: string) {
+    const action = this.actionCreator<{ type: string; data: Payload }>(
+      actionName
+    );
+    this.socketActions[actionName] = action;
+
+    return (payload: Payload) => ({
+      ...action({ type: actionName, data: payload }),
+      meta: 'SOCKET_ACTION',
+    });
   }
 }

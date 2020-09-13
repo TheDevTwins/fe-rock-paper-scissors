@@ -167,4 +167,8 @@ export default class GlobalManager {
   public onClose = (func: any) => {
     this.handleClose = func;
   };
+
+  public sendSocketAction = (data: string) => {
+    Object.values(this.sockets).forEach(({ socket }) => socket.send(data));
+  };
 }

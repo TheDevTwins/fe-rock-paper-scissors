@@ -5,7 +5,11 @@ import { useParams } from 'react-router';
 import { Logo } from 'components';
 import UserCustomization from './UserCustomization';
 
-import { connectToSessionSocket, disconnectFromSessionSocket } from 'state';
+import {
+  connectToSessionSocket,
+  disconnectFromSessionSocket,
+  testSocketAction,
+} from 'state';
 
 const Lobby: React.FC = () => {
   const dispatch = useDispatch();
@@ -21,6 +25,9 @@ const Lobby: React.FC = () => {
 
   return (
     <div className="lobby defaultBg">
+      <button onClick={() => dispatch(testSocketAction({}))}>
+        Test socket
+      </button>
       <header className="wrapper">
         <Logo />
       </header>

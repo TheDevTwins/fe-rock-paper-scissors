@@ -17,7 +17,9 @@ export default function createSocketMiddleware(stateManager: GlobalManager) {
     let res;
     let module;
     let event;
-    if (!(action.meta === SOCKET_COMMAND)) {
+    if (action.meta === 'SOCKET_ACTION') {
+      stateManager.sendSocketAction(JSON.stringify(action.payload));
+    } else if (!(action.meta === SOCKET_COMMAND)) {
       return next(action);
     } else {
       res = next(action);
@@ -80,6 +82,7 @@ export default function createSocketMiddleware(stateManager: GlobalManager) {
             meta: SOCKET_COMMAND,
             socketDesc: action.socketDesc,
           });
+          break;
       }
     }
     return res;
