@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import { StoreState } from './storeState';
 import { globalManager } from './manager';
 
-import { createSocketMiddleware } from 'redux-state-manager';
+import { createSocketMiddleware } from 'services';
 
 /**
  * Create the redux-saga middleware.

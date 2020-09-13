@@ -1,18 +1,7 @@
 import {
   createSocketConnectAction,
   createSocketDisconnectAction,
-} from 'redux-state-manager';
-
-const klassUrl = '/klass/';
-const klassDesc = 'klass';
-export const connectToKlassSocket = createSocketConnectAction(
-  klassUrl,
-  klassDesc
-);
-export const disconnectFromKlassSocket = createSocketDisconnectAction(
-  klassUrl,
-  klassDesc
-);
+} from 'services';
 
 const sessionUrl = '/session';
 const sessionDesc = 'session';

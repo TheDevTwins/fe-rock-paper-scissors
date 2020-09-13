@@ -1,6 +1,7 @@
-import { Auth } from './auth/types';
-import { ApiStateSingle } from 'redux-state-manager';
+import { ApiStateSingle } from 'services';
+
+import { AppState } from './app/manager';
 
 export type StoreState = {
-  auth: ApiStateSingle<Auth>;
+  app: AppState;
 };
