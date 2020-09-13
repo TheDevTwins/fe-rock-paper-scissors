@@ -1,22 +1,21 @@
 import React from 'react';
 
-type props = {
-  // None are required, base style is in default classes
-  hat?: string;
-  face?: string;
-  skin?: string;
-  shirt?: string;
-};
+import { Avatar as AvatarType } from 'state';
 
-const Avatar: React.FC<props> = ({ hat, face, skin, shirt }) => {
+const hats = [''];
+const skinColors = [''];
+const faces = [''];
+const shirtColors = [''];
+
+const Avatar: React.FC<AvatarType> = ({ hat, face, skin, shirt }) => {
   return (
     <div className="avatar">
       <div className="avatar__container">
-        <div className={`hat ${hat}`}></div>
-        <div className={`head ${skin}`}>
-          <div className={`face ${face}`}></div>
+        <div className={`hat ${hats[hat]}`}></div>
+        <div className={`head ${skinColors[skin]}`}>
+          <div className={`face ${faces[face]}`}></div>
         </div>
-        <div className={`shirt ${shirt}`}></div>
+        <div className={`shirt ${shirtColors[shirt]}`}></div>
       </div>
     </div>
   );

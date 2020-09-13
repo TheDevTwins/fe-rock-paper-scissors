@@ -1,5 +1,5 @@
 import { appManager, AppState } from './manager';
-
+import { addElementToIndexedArray } from 'services';
 import * as types from './types';
 
 export const createSession = appManager.createApi<
@@ -13,3 +13,17 @@ export const createSession = appManager.createApi<
     state.session = result;
   },
 });
+
+appManager.createSocketListener<types.Player, AppState>(
+  'player_joined',
+  (state, result) => {
+    addElementToIndexedArray(state.players, result);
+  }
+);
+
+appManager.createSocketListener<types.Player, AppState>(
+  'player_left',
+  (state, result) => {
+    delete state.players[result.id];
+  }
+);

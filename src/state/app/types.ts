@@ -8,3 +8,10 @@ export type Player = {
   name: string;
   player_type: number;
 };
+
+export type Avatar = {
+  hat: number;
+  face: number;
+  skin: number;
+  shirt: number;
+};

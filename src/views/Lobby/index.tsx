@@ -4,16 +4,13 @@ import { useParams } from 'react-router';
 
 import { Logo } from 'components';
 import UserCustomization from './UserCustomization';
+import UserList from './UserList';
 
-import {
-  connectToSessionSocket,
-  disconnectFromSessionSocket,
-  testSocketAction,
-} from 'state';
+import { connectToSessionSocket, disconnectFromSessionSocket } from 'state';
 
 const Lobby: React.FC = () => {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id } = useParams() as any;
 
   useEffect(() => {
     dispatch(connectToSessionSocket('', id));
@@ -25,9 +22,6 @@ const Lobby: React.FC = () => {
 
   return (
     <div className="lobby defaultBg">
-      <button onClick={() => dispatch(testSocketAction({}))}>
-        Test socket
-      </button>
       <header className="wrapper">
         <Logo />
       </header>
@@ -39,6 +33,7 @@ const Lobby: React.FC = () => {
           </div>
           <div className="lobby__panel">
             <div className="lobby__title">Lobby</div>
+            <UserList />
           </div>
         </div>
       </div>
