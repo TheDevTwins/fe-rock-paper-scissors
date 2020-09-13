@@ -3,14 +3,69 @@
     width: 100%;
     height: 0;
     padding-bottom: 100%;
-    background-color: #f3f3f3;
+    background-color: rgb(240, 240, 240);
     border-radius: 50%;
     position: relative;
+    overflow: hidden;
 
     &__container {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
+        height: 100%;
+    }
+
+    & .body {
+        position: absolute;
+        top: 75%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: $color-orange;
+        z-index: 20;
+    }
+
+    & .head {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background-color: rgb(255, 222, 199);
+        z-index: 30;
+    }
+
+    .hat {
+        position: absolute;
+        top: 5%;
+        left: 25%;
+        width: 50%;
+        height: 25%;
+        background-color: #fff;
+        clip-path: polygon(15% 100%, 0 60%, 25% 60%, 50% 0, 75% 60%, 100% 60%, 85% 100%);
+        z-index: 40;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 60%;
+            background-color: rgb(250, 250, 250);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background-color: rgb(245, 245, 245);
+        }
     }
 }
