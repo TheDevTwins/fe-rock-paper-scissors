@@ -31,5 +31,13 @@
         line-height: 1;
         padding-bottom: 1rem;
         border-bottom: 1px solid $color-blue;
+        margin-bottom: 2rem;
+    }
+
+    &__playerSection {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 6fr));
+        column-gap: 3rem;
+        row-gap: 3rem;
     }
 }

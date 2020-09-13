@@ -1,6 +1,6 @@
 .userCustom {
-    & > * {
-        margin-top: 2rem;
+    & > *:not(:last-child) {
+        margin-bottom: 2rem;
     }
 
     display: flex;
@@ -30,7 +30,7 @@
             &:focus,
             &:active
             { &:hover {
-                color: $color-orange;
+                color: $color-purple;
             }}
         }
     }
@@ -84,14 +84,15 @@
         border: .2rem solid currentColor;
         transition: all .2s;
         cursor: pointer;
-
-        &:hover {
-            color: $color-orange;
-        }
     }
 
     & .random {
         @include btn;
+        color: $color-blue;
+
+        &:hover {
+            color: $color-purple;
+        }
     }
 
     & .playerType {
@@ -100,9 +101,15 @@
 
         &__option {
             @include btn;
+            color: $color-blue;
+            &:hover {
+                color: $color-purple;
+            }
             
             &.active {
-                color: $color-orange;
+                color: #fff;
+                background-color: $color-purple;
+                border-color: $color-purple;
             }
 
             &:not(:last-child) {

@@ -1,0 +1,62 @@
+.userList {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    & > *:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__player {
+        display: grid;
+        grid-template-columns: 1.5fr 6fr 4.5fr 2rem;
+        column-gap: 2rem;
+        align-items: center;
+    }
+
+    &__name {
+        font-family: $font-1;
+        color: $color-blue;
+    }
+
+    &__type {
+        text-transform: uppercase;
+        font-size: 1.4rem;
+
+        &.admin::before {
+            content: "admin";
+            color: $color-red;
+        }
+
+        &.player::before {
+            content: "player";
+            color: $color-purple;
+        }
+
+        &.spectator::before {
+            content: "spectator";
+            color: #9e9e9e;
+        }
+    }
+
+    &__kick {
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        position: relative;
+        background-color: $color-red;
+        border-radius: .3rem;
+        cursor: pointer;
+        
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: .3rem;
+            background-color: #fff;
+        }
+    }
+}
