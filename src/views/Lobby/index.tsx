@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
 
 import { Logo } from 'components';
 import UserCustomization from './UserCustomization';
 
+import { connectToSessionSocket, disconnectFromSessionSocket } from 'state';
+
 const Lobby: React.FC = () => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(connectToSessionSocket('', id));
+
+    return () => {
+      dispatch(disconnectFromSessionSocket('', id));
+    };
+  }, [dispatch, id]);
+
   return (
     <div className="lobby defaultBg">
       <header className="wrapper">
