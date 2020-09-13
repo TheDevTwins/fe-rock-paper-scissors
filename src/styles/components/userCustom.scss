@@ -60,7 +60,7 @@
         &:active,
         &:hover {
             outline: none;
-            transform: scale(1.02);
+            //transform: scale(1.02);
             box-shadow: 0 0 2rem 1rem rgba($color-purple, 0.2);
         }
 
@@ -82,7 +82,12 @@
         text-transform: uppercase;
         padding: 1rem 2rem;
         border-radius: 15rem;
-        border: .2rem solid $color-blue;
+        border: .2rem solid currentColor;
         transition: all .2s;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-purple;
+        }
     }
 }
