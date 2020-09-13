@@ -3,9 +3,12 @@ import { hydrate } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { Logo, RpsAnimation } from '../components';
+import { Logo, RpsAnimation } from 'components';
+
+import { createSession } from '../state/app/actions';
 
 const Home: React.FC = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
 
   return (
@@ -15,7 +18,7 @@ const Home: React.FC = () => {
       </header>
       <main className="home__container">
         <RpsAnimation />
-        <div onClick={() => history.push('/session/id')} className="home__btn">
+        <div onClick={() => dispatch(createSession({}))} className="home__btn">
           <span className="home__btn-text">New Game</span>
         </div>
       </main>
