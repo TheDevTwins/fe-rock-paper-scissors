@@ -10,18 +10,6 @@ export type API<Payload, Result, ApiState> = {
   startReducer?: (state: ApiState, payload: Payload) => void;
 };
 
-export type ApiStateList<Entity> = {
-  items: Entity[];
-  waiting: boolean;
-  error?: Error;
-};
-
-export type ApiStateSingle<Entity> = {
-  item: Entity;
-  waiting: boolean;
-  error?: Error;
-};
-
 export type SocketAction = {
   type: string;
   meta: string;

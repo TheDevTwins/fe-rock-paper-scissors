@@ -5,3 +5,4 @@ export * from './createSocketActions';
 export { default as createSocketMiddleware } from './createSocketMiddleware';
 export * from './types';
 export { default as combineManagers } from './combineManagers';
+export * from './indexedArray';
