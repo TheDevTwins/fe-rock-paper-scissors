@@ -1,9 +1,7 @@
 .userCustom {
-    // margin-top: 5rem;
-    // & > *:not(:last-child) {
-    //     margin-bottom: 5rem;
-    // }
-    // 
+    & > * {
+        margin-top: 2rem;
+    }
 
     display: flex;
     flex-direction: column;
@@ -32,7 +30,7 @@
             &:focus,
             &:active
             { &:hover {
-                color: $color-purple;
+                color: $color-orange;
             }}
         }
     }
@@ -54,6 +52,7 @@
         font-family: $font-1;
         padding: 1rem 2rem;
         border-radius: 15rem;
+        text-align: center;
         transition: all .2s;
 
         &:focus,
@@ -72,7 +71,7 @@
         }
     }
 
-    & .random {
+    @mixin btn {
         display: inline-block;
         color: $color-blue;
         font-family: $font-1;
@@ -87,7 +86,28 @@
         cursor: pointer;
 
         &:hover {
-            color: $color-purple;
+            color: $color-orange;
+        }
+    }
+
+    & .random {
+        @include btn;
+    }
+
+    & .playerType {
+        display: flex;
+        align-items: center;
+
+        &__option {
+            @include btn;
+            
+            &.active {
+                color: $color-orange;
+            }
+
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
         }
     }
 }

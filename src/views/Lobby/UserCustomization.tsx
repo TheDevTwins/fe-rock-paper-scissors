@@ -35,6 +35,10 @@ const UserCustomization: React.FC = () => {
         className="userCustom__input"
         onChange={e => setName(e.target.value)}
       />
+      <div className="playerType">
+        <div className="playerType__option active">Player</div>
+        <div className="playerType__option">Spectator</div>
+      </div>
     </div>
   );
 };
