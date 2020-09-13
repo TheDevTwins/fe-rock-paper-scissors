@@ -1,8 +1,9 @@
-export * from './auth/actions';
 export * from './sockets/connectActions';
 
-export * from './auth/types';
+export * from './app/actions';
+export * from './app/types';
+export * from './app/constants';
 
-import * as auth from './auth/selectors';
+import * as app from './app/selectors';
 
-export const selectors = { ...auth };
+export const selectors = { ...app };
