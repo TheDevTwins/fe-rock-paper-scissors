@@ -30,3 +30,14 @@ appManager.createSocketListener<types.Player, AppState>(
     delete state.players[result.id];
   }
 );
+
+appManager.createSocketListener<{ player_id: number; name: string }, AppState>(
+  'name_updated',
+  (state, result) => {
+    state.players[result.player_id].name = result.name;
+  }
+);
+
+export const updateName = appManager.createSocketAction<{ name: string }>(
+  'update_name'
+);

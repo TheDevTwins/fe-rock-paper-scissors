@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
 
 import { Avatar } from 'components';
 
+import { updateName, selectors } from 'state';
+
 const UserCustomization: React.FC = () => {
+  const dispatch = useDispatch();
+  const player = useSelector(selectors.currentPlayer);
+
   const [name, setName] = useState<string>('Guest');
 
   const [playerType, setPlayerType] = useState<number>(0);
@@ -32,10 +37,11 @@ const UserCustomization: React.FC = () => {
       </div>
       <div className="random">Randomize</div>
       <input
+        value={player?.name}
         type="text"
         placeholder="Player name"
         className="userCustom__input"
-        onChange={e => setName(e.target.value)}
+        onChange={e => dispatch(updateName({ name: e.target.value }))}
       />
       <div className="playerType">
         <div
