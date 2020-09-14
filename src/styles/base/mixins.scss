@@ -1,0 +1,13 @@
+@mixin rgbAjust($color, $ammount) {
+    background-color: adjust-color(
+        $color, 
+        $red: $ammount, 
+        $green: $ammount, 
+        $blue: $ammount
+    );
+};
+@mixin hatComponents($color) {
+    &         {@include rgbAjust($color, 0)}
+    &::before {@include rgbAjust($color, -5)}
+    &::after  {@include rgbAjust($color, -10)}
+}

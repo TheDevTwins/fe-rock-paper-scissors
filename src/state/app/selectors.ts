@@ -6,7 +6,6 @@ export const playersList = (state: StoreState) =>
   Object.values(state.app.players);
 
 export const currentPlayer = (state: StoreState) => {
-  console.log(state.app.players[state.app.selfId]);
   return state.app.players[state.app.selfId];
 };
 
