@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { Logo, Chat } from 'components';
 import UserCustomization from './UserCustomization';
 import UserList from './UserList';
+import ShareLink from './ShareLink';
 
 import { connectToSessionSocket, disconnectFromSessionSocket } from 'state';
 
@@ -22,8 +23,9 @@ const Lobby: React.FC = () => {
 
   return (
     <div className="lobby defaultBg">
-      <header className="wrapper">
+      <header className="wrapper lobby__header">
         <Logo />
+        <ShareLink />
       </header>
       <div className="wrapper">
         <div className="lobby__panels">

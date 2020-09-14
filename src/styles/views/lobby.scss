@@ -5,6 +5,12 @@
     padding: 5rem 0;
     column-gap: 5rem;
     row-gap: 5rem;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     
     &__panels {
         height: 100%;
