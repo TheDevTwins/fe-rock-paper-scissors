@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { Logo } from 'components';
+import { Logo, Chat } from 'components';
 import UserCustomization from './UserCustomization';
 import UserList from './UserList';
 
@@ -33,7 +33,10 @@ const Lobby: React.FC = () => {
           </div>
           <div className="lobby__panel">
             <div className="lobby__title">Lobby</div>
-            <UserList />
+            <div className="lobby__playerSection">
+              <UserList />
+              <Chat />
+            </div>
           </div>
         </div>
       </div>

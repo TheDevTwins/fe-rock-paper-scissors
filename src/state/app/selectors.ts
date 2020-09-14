@@ -4,3 +4,12 @@ export const session = (state: StoreState) => state.app.session;
 
 export const playersList = (state: StoreState) =>
   Object.values(state.app.players);
+
+export const currentPlayer = (state: StoreState) => {
+  console.log(state.app.players[state.app.selfId]);
+  return state.app.players[state.app.selfId];
+};
+
+export const isAdmin = (state: StoreState) => {
+  return currentPlayer(state)?.is_admin;
+};
