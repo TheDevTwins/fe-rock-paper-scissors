@@ -34,7 +34,8 @@ appManager.createSocketListener<types.Player, AppState>(
 appManager.createSocketListener<{ player_id: number; name: string }, AppState>(
   'name_updated',
   (state, result) => {
-    state.players[result.player_id].name = result.name;
+    const player = state.players[result.player_id];
+    if (player) player.name = result.name;
   }
 );
 
@@ -46,9 +47,22 @@ appManager.createSocketListener<
   { player_id: number; avatar: types.Avatar },
   AppState
 >('avatar_updated', (state, result) => {
-  state.players[result.player_id].avatar = result.avatar;
+  const player = state.players[result.player_id];
+  if (player) player.avatar = result.avatar;
 });
 
 export const updateAvatar = appManager.createSocketAction<types.Avatar>(
   'update_avatar'
 );
+
+appManager.createSocketListener<
+  { player_id: number; player_type: number },
+  AppState
+>('player_type_updated', (state, result) => {
+  const player = state.players[result.player_id];
+  if (player) player.player_type = result.player_type;
+});
+
+export const updatePlayerType = appManager.createSocketAction<{
+  player_type: number;
+}>('update_player_type');

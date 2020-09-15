@@ -4,6 +4,7 @@ import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
 import {
   updateName,
   updateAvatar,
+  updatePlayerType,
   selectors,
   Avatar as AvatarType,
 } from 'state';
@@ -16,7 +17,7 @@ const UserCustomization: React.FC = () => {
   const dispatch = useDispatch();
   const player = useSelector(selectors.currentPlayer);
 
-  const [playerType, setPlayerType] = useState(0);
+  const [playerType, setPlayerType] = useState(1);
 
   const updateAvatarVals = (propType: string, i: number) => {
     const len = avatarClassesLength[propType as keyof AvatarType];
@@ -73,14 +74,22 @@ const UserCustomization: React.FC = () => {
       />
       <div className="playerType">
         <div
-          onClick={() => setPlayerType(0)}
-          className={`playerType__option ${!playerType ? 'active' : ''}`}
+          onClick={() => {
+            if (playerType === 0 && player)
+              dispatch(updatePlayerType({ player_type: 1 }));
+            setPlayerType(1);
+          }}
+          className={`playerType__option ${playerType ? 'active' : ''}`}
         >
           Player
         </div>
         <div
-          onClick={() => setPlayerType(1)}
-          className={`playerType__option ${playerType ? 'active' : ''}`}
+          onClick={() => {
+            if (playerType === 1 && player)
+              dispatch(updatePlayerType({ player_type: 0 }));
+            setPlayerType(0);
+          }}
+          className={`playerType__option ${!playerType ? 'active' : ''}`}
         >
           Spectator
         </div>
