@@ -66,3 +66,12 @@ appManager.createSocketListener<
 export const updatePlayerType = appManager.createSocketAction<{
   player_type: number;
 }>('update_player_type');
+
+appManager.createSocketListener<types.Message, AppState>(
+  'message_recieved',
+  (state, result) => {
+    state.messages.push(result);
+  }
+);
+
+appManager.createSocketAction<{ message: string }>('send_message');

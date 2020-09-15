@@ -8,6 +8,7 @@ export type AppState = {
   session: types.Session;
   selfId: number;
   players: IndexedArray<types.Player>;
+  messages: types.Message[];
 };
 
 export const appManager = new StateManager({
@@ -16,5 +17,6 @@ export const appManager = new StateManager({
   socketUrl: SOCKET_URL,
   initialState: {
     players: {},
+    messages: [],
   },
 });

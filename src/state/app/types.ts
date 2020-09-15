@@ -17,3 +17,8 @@ export type Player = {
   is_admin: number;
   avatar: Avatar;
 };
+
+export type Message = {
+  player_id: number;
+  message: string;
+}
