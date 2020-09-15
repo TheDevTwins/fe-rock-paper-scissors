@@ -35,10 +35,11 @@ const Lobby: React.FC = () => {
           </div>
           <div className="lobby__panel">
             <div className="lobby__title">Lobby</div>
-            <div className="lobby__playerSection">
-              <UserList />
-              <Chat />
-            </div>
+            <UserList />
+          </div>
+          <div className="lobby__panel">
+            <div className="lobby__title">Chat</div>
+            <Chat />
           </div>
         </div>
       </div>
