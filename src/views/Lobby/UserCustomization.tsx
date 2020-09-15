@@ -49,7 +49,7 @@ const UserCustomization: React.FC = () => {
       </div>
       <div className="random">Randomize</div>
       <input
-        value={player?.name}
+        value={player?.name || ''}
         type="text"
         placeholder="Player name"
         className="userCustom__input"
