@@ -41,3 +41,14 @@ appManager.createSocketListener<{ player_id: number; name: string }, AppState>(
 export const updateName = appManager.createSocketAction<{ name: string }>(
   'update_name'
 );
+
+appManager.createSocketListener<
+  { player_id: number; avatar: types.Avatar },
+  AppState
+>('avatar_updated', (state, result) => {
+  state.players[result.player_id].avatar = result.avatar;
+});
+
+export const updateAvatar = appManager.createSocketAction<types.Avatar>(
+  'update_avatar'
+);

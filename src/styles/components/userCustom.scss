@@ -89,6 +89,7 @@
     & .random {
         @include btn;
         color: $color-blue;
+        user-select: none;
 
         &:hover {
             color: $color-purple;

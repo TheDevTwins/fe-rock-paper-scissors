@@ -1,10 +1,10 @@
 import { Avatar } from 'components';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { StateManager } from 'services';
 import { selectors } from 'state';
 
 import { Player } from 'state';
+
 const UserList: React.FC = () => {
   const players = useSelector(selectors.playersList);
   const comparePlayers: (a: Player, b: Player) => number = (a, b) => {
@@ -15,7 +15,6 @@ const UserList: React.FC = () => {
     } else return 0;
   };
   players.sort(comparePlayers);
-  console.log({ players });
 
   const isAdmin = useSelector(selectors.isAdmin);
 
@@ -24,7 +23,7 @@ const UserList: React.FC = () => {
       {players.map(player => (
         <div key={player.id} className="userList__player">
           <div className="userList__avatar">
-            <Avatar hat={0} skin={0} face={0} shirt={0} />
+            <Avatar {...player.avatar} />
           </div>
           <div className="userList__name">{player.name}</div>
           <div

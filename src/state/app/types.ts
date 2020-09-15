@@ -15,5 +15,5 @@ export type Player = {
   name: string;
   player_type: number;
   is_admin: number;
-  avatat: Avatar;
+  avatar: Avatar;
 };
