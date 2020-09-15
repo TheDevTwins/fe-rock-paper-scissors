@@ -68,10 +68,12 @@ export const updatePlayerType = appManager.createSocketAction<{
 }>('update_player_type');
 
 appManager.createSocketListener<types.Message, AppState>(
-  'message_recieved',
+  'message_received',
   (state, result) => {
     state.messages.push(result);
   }
 );
 
-appManager.createSocketAction<{ message: string }>('send_message');
+export const sendMessage = appManager.createSocketAction<{ message: string }>(
+  'send_message'
+);

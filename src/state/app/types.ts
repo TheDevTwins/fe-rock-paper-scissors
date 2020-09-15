@@ -21,4 +21,4 @@ export type Player = {
 export type Message = {
   player_id: number;
   message: string;
-}
+};
