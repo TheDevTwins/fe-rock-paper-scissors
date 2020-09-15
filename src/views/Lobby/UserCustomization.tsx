@@ -49,6 +49,7 @@ const UserCustomization: React.FC = () => {
       </div>
       <div className="random">Randomize</div>
       <input
+        maxLength={10}
         value={player?.name || ''}
         type="text"
         placeholder="Player name"

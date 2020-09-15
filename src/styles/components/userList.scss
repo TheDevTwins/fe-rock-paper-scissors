@@ -9,7 +9,7 @@
 
     &__player {
         display: grid;
-        grid-template-columns: 1.5fr 6fr 4.5fr 2rem;
+        grid-template-columns: 1.5fr 6.5fr 4fr 2rem;
         column-gap: 2rem;
         align-items: center;
     }
@@ -17,6 +17,7 @@
     &__name {
         font-family: $font-1;
         color: $color-blue;
+        overflow: hidden;
     }
 
     &__type {
