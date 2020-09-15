@@ -26,6 +26,16 @@ const UserCustomization: React.FC = () => {
     dispatch(updateAvatar({ [propType]: newVal } as any));
   };
 
+  const randomAvatarVals = () => {
+    const clsLen = avatarClassesLength;
+    return {
+      hat: Math.floor(Math.random() * (clsLen['hat'] - 1)),
+      face: Math.floor(Math.random() * (clsLen['face'] - 1)),
+      skin: Math.floor(Math.random() * (clsLen['skin'] - 1)),
+      shirt: Math.floor(Math.random() * (clsLen['shirt'] - 1)),
+    };
+  };
+
   return (
     <div className="userCustom">
       <div className="userCustom__group">
@@ -47,7 +57,12 @@ const UserCustomization: React.FC = () => {
           <CaretRightOutlined onClick={() => updateAvatarVals('shirt', 1)} />
         </div>
       </div>
-      <div className="random">Randomize</div>
+      <div
+        onClick={() => dispatch(updateAvatar(randomAvatarVals()))}
+        className="random"
+      >
+        Randomize
+      </div>
       <input
         maxLength={10}
         value={player?.name || ''}
