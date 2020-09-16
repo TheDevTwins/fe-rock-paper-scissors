@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
+import { Spin } from 'antd';
+import { connectToSessionSocket, disconnectFromSessionSocket } from 'state';
+
 import { Logo, Chat } from 'components';
 import UserCustomization from './UserCustomization';
 import UserList from './UserList';
 import ShareLink from './ShareLink';
-
-import { connectToSessionSocket, disconnectFromSessionSocket } from 'state';
 
 const Lobby: React.FC = () => {
   const dispatch = useDispatch();
@@ -34,8 +35,17 @@ const Lobby: React.FC = () => {
             <UserCustomization />
           </div>
           <div className="lobby__panel">
-            <div className="lobby__title">Lobby</div>
+            <div className="lobby__title">
+              Lobby
+              <div className="status">
+                Waiting for players to join
+                {/* <Spin className="status__spinner" spinning={true}></Spin> */}
+              </div>
+            </div>
             <UserList />
+            <div className="admin">
+              <div className="admin__start">Start Game</div>
+            </div>
           </div>
           <div className="lobby__panel">
             <div className="lobby__title">Chat</div>

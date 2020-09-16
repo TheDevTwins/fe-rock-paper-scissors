@@ -71,21 +71,6 @@
         }
     }
 
-    @mixin btn {
-        display: inline-block;
-        color: $color-blue;
-        font-family: $font-1;
-        font-weight: bold;
-        font-size: 1.3rem;
-        letter-spacing: .1rem;
-        text-transform: uppercase;
-        padding: 1rem 2rem;
-        border-radius: 15rem;
-        border: .2rem solid currentColor;
-        transition: all .2s;
-        cursor: pointer;
-    }
-
     & .random {
         @include btn;
         color: $color-blue;
