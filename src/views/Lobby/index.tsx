@@ -2,8 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
-import { Spin } from 'antd';
-import { connectToSessionSocket, disconnectFromSessionSocket } from 'state';
+//import { Spin } from 'antd';
+import {
+  connectToSessionSocket,
+  disconnectFromSessionSocket,
+  retrieveSession,
+} from 'state';
 
 import { Logo, Chat } from 'components';
 import UserCustomization from './UserCustomization';
@@ -16,6 +20,7 @@ const Lobby: React.FC = () => {
 
   useEffect(() => {
     dispatch(connectToSessionSocket('', id));
+    dispatch(retrieveSession({ id: id }));
 
     return () => {
       dispatch(disconnectFromSessionSocket('', id));
@@ -43,8 +48,8 @@ const Lobby: React.FC = () => {
               </div>
             </div>
             <UserList />
-            <div className="admin">
-              <div className="admin__start">Start Game</div>
+            <div className="gameSettings">
+              <div className="gameSettings__start">Start Game</div>
             </div>
           </div>
           <div className="lobby__panel">

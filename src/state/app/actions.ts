@@ -1,5 +1,5 @@
 import { appManager, AppState } from './manager';
-import { addElementToIndexedArray } from 'services';
+import { addElementToIndexedArray, IndexedArray } from 'services';
 import * as types from './types';
 
 export const createSession = appManager.createApi<
@@ -11,6 +11,21 @@ export const createSession = appManager.createApi<
   method: 'POST',
   successReducer(state, result) {
     state.session = result;
+  },
+});
+
+export const retrieveSession = appManager.createApi<
+  { id: number },
+  { session: types.Session; players: types.Player[] },
+  AppState
+>('RETRIEVE_SESSION', {
+  path: '/sessions/:id',
+  method: 'GET',
+  successReducer(state, result) {
+    result.players.forEach(player => {
+      state.players[player.id] = player;
+      state.session = result.session;
+    });
   },
 });
 
