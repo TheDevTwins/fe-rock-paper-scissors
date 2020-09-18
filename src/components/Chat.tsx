@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectors, sendMessage } from 'state';
@@ -10,6 +10,7 @@ const Chat: React.FC = () => {
   const dispatch = useDispatch();
   const messages = useSelector(selectors.localMessages);
   const players = useSelector(selectors.players);
+  const offlinePlayers = useSelector(selectors.offlinePlayers);
   const currentPlayer = useSelector(selectors.currentPlayer);
 
   const [messageInput, setMessageInput] = useState('');
@@ -19,6 +20,7 @@ const Chat: React.FC = () => {
       setMessageInput('');
     }
   };
+
   return (
     <div className="chat">
       <div className="chat__list">
@@ -31,7 +33,10 @@ const Chat: React.FC = () => {
               }`}
             >
               <div className="chat__avatar">
-                <Avatar {...players[msg.player_id].avatar} />
+                <Avatar
+                  {...offlinePlayers[msg.player_id]?.avatar}
+                  {...players[msg.player_id]?.avatar}
+                />
               </div>
               <div className="chat__bubble">{msg.message}</div>
             </div>

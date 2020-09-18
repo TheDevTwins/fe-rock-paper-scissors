@@ -9,6 +9,9 @@ export type AppState = {
   selfId: number;
   players: IndexedArray<types.Player>;
   messages: types.Message[];
+  offline: {
+    players: IndexedArray<types.Player>;
+  };
 };
 
 export const appManager = new StateManager({
@@ -18,5 +21,8 @@ export const appManager = new StateManager({
   initialState: {
     players: {},
     messages: [],
+    offline: {
+      players: {},
+    },
   },
 });

@@ -42,6 +42,7 @@ appManager.createSocketListener<types.Player, AppState>(
 appManager.createSocketListener<types.Player, AppState>(
   'player_left',
   (state, result) => {
+    state.offline.players[result.id] = state.players[result.id];
     delete state.players[result.id];
   }
 );

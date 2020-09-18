@@ -18,3 +18,7 @@ export const isAdmin = (state: StoreState) => {
 export const localMessages = (state: StoreState) => {
   return state.app.messages;
 };
+
+export const offlinePlayers = (state: StoreState) => {
+  return state.app.offline.players;
+};
