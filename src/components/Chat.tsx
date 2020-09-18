@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectors, sendMessage } from 'state';
@@ -13,6 +13,13 @@ const Chat: React.FC = () => {
   const offlinePlayers = useSelector(selectors.offlinePlayers);
   const currentPlayer = useSelector(selectors.currentPlayer);
 
+  const chatList = useRef(document.createElement('div'));
+
+  useEffect(() => {
+    const elem = chatList?.current;
+    elem.scrollTop = elem.scrollHeight - elem.clientHeight;
+  });
+
   const [messageInput, setMessageInput] = useState('');
   const handleSendMessage = () => {
     if (messageInput) {
@@ -23,25 +30,27 @@ const Chat: React.FC = () => {
 
   return (
     <div className="chat">
-      <div className="chat__list">
-        {messages.map((msg, i) => {
-          return (
-            <div
-              key={i}
-              className={`chat__item ${
-                msg.player_id === currentPlayer.id ? 'right' : ''
-              }`}
-            >
-              <div className="chat__avatar">
-                <Avatar
-                  {...offlinePlayers[msg.player_id]?.avatar}
-                  {...players[msg.player_id]?.avatar}
-                />
+      <div className="chat__container">
+        <div ref={chatList} className="chat__list">
+          {messages.map((msg, i) => {
+            return (
+              <div
+                key={i}
+                className={`chat__item ${
+                  msg.player_id === currentPlayer.id ? 'right' : ''
+                }`}
+              >
+                <div className="chat__avatar">
+                  <Avatar
+                    {...offlinePlayers[msg.player_id]?.avatar}
+                    {...players[msg.player_id]?.avatar}
+                  />
+                </div>
+                <div className="chat__bubble">{msg.message}</div>
               </div>
-              <div className="chat__bubble">{msg.message}</div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <div className="chat__actions">
         <input
