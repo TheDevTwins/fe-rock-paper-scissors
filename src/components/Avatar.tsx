@@ -6,7 +6,7 @@ import { Avatar as AvatarType } from 'state';
 const avatarClasses = {
   hats: ['white', 'yellow', 'orange', 'red', 'purple', 'blue', 'green', 'grey'],
   skinColors: ['skin1', 'skin2', 'skin3', 'skin4', 'skin5'],
-  faces: ['meh'],
+  faces: ['meh', 'happy'],
   shirtColors: [
     'orange',
     'red',

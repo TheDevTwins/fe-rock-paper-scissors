@@ -75,51 +75,73 @@
 
     & .face {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 66%;
+        height: 66%;
+        //background-color: red;
 
-        & > * {
+        .eyebrows {
             position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 25%;
         }
 
         & .eyes {
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: absolute;
+            top: 25%;
+            left: 0;
+            width: 100%;
+            height: 25%;
 
             &::before,
             &::after {
                 content: "";
                 position: absolute;
-                top: 0;
-                width: 30%;
+                top: 50%;
+                width: 25%;
+                transform: translateY(-50%);
                 height: 100%;
                 border-radius: 50%;
-                background-color: rgb(50, 50, 50);
+                background-color: rgb(60, 60, 60);
             }
             &::before {left: 0;}
             &::after {right: 0;}
         }
 
         & .mouth {
-            top: 72%;
+            position: absolute;
+            top: 75%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgb(50, 50, 50);
-            
+            transform: translateX(-50%);
+            background-color: rgb(60, 60, 60);
         }
 
         &.meh {
             & .eyes {
-                width: 50%;
-                height: 15%;
+                &::before,
+                &::after {
+                    width: 15%;
+                    height: 60%;
+                }
             }
 
             & .mouth {
-                width: 20%;
-                height: 5%;
+                width: 100%;
+                height: 7%;
+                transform: translateX(-50%) translateY(-10%);
+            }
+        }
+
+        &.happy {
+            & .mouth {
+                width: 40%;
+                height: 25%;
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
             }
         }
     }
@@ -133,7 +155,7 @@
         border-radius: 50%;
         z-index: 20;
 
-        &.white  {background-color: #fff;}
+        &.white  {background-color: rgb(250, 250, 250);}
         &.yellow {background-color: $color-yellow;}
         &.orange {background-color: $color-orange;}
         &.red    {background-color: $color-red;}
