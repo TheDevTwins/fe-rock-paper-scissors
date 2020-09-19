@@ -9,7 +9,15 @@
     &__header {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        //justify-content: space-between;
+
+        & > *:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+        & .logo {
+            margin-right: auto;
+        }
     }
     
     &__panels {
@@ -57,24 +65,6 @@
                 margin-left: 1rem;
                 line-height: 1;
                 font-size: 1rem;
-            }
-        }
-    }
-
-    & .gameSettings {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &__start {
-            @include btn;
-            color: #fff;
-            border: none;
-            background-image: linear-gradient(to right bottom,
-            $color-blue, $color-purple);
-
-            &:hover {
-                box-shadow: 0 0 2rem 0.5rem rgba($color-purple, 0.2);
             }
         }
     }
