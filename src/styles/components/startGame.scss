@@ -1,0 +1,14 @@
+.startGame {
+    @include btn;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: none;
+    background-image: linear-gradient(to right bottom,
+    $color-orange, $color-red);
+
+    &:hover {
+        box-shadow: 0 0 2rem 0.5rem rgba($color-red, 0.2);
+    }
+}

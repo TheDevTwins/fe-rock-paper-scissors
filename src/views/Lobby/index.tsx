@@ -31,6 +31,7 @@ const Lobby: React.FC = () => {
     <div className="lobby defaultBg">
       <header className="wrapper lobby__header">
         <Logo />
+        <div className="startGame">Start Game</div>
         <ShareLink />
       </header>
       <div className="wrapper">
@@ -48,9 +49,6 @@ const Lobby: React.FC = () => {
               </div>
             </div>
             <UserList />
-            <div className="gameSettings">
-              <div className="gameSettings__start">Start Game</div>
-            </div>
           </div>
           <div className="lobby__panel">
             <div className="lobby__title">Chat</div>
