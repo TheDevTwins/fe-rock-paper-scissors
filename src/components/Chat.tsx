@@ -33,18 +33,26 @@ const Chat: React.FC = () => {
       <div className="chat__container">
         <div ref={chatList} className="chat__list">
           {messages.map((msg, i) => {
+            const first = messages[i].player_id != messages[i - 1]?.player_id;
+            const last = messages[i].player_id != messages[i + 1]?.player_id;
+            const middle = !first && !last;
             return (
               <div
                 key={i}
-                className={`chat__item ${
-                  msg.player_id === currentPlayer.id ? 'right' : ''
-                }`}
+                className={`chat__item 
+                  ${msg.player_id === currentPlayer.id ? 'right' : ''} 
+                  ${last ? 'last' : middle ? 'middle' : 'first'}
+                `}
               >
                 <div className="chat__avatar">
-                  <Avatar
-                    {...offlinePlayers[msg.player_id]?.avatar}
-                    {...players[msg.player_id]?.avatar}
-                  />
+                  {messages[i].player_id != messages[i - 1]?.player_id ? (
+                    <Avatar
+                      {...offlinePlayers[msg.player_id]?.avatar}
+                      {...players[msg.player_id]?.avatar}
+                    />
+                  ) : (
+                    ' '
+                  )}
                 </div>
                 <div className="chat__bubble">{msg.message}</div>
               </div>
