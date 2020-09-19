@@ -1,7 +1,9 @@
 .userList {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
 
     &__player {
         display: grid;

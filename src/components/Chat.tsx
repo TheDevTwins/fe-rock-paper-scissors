@@ -30,8 +30,8 @@ const Chat: React.FC = () => {
 
   return (
     <div className="chat">
-      <div className="chat__container">
-        <div ref={chatList} className="chat__list">
+      <div className="chat__container scroll">
+        <div ref={chatList} className="scroll__container">
           {messages.map((msg, i) => {
             const first = messages[i].player_id != messages[i - 1]?.player_id;
             const last = messages[i].player_id != messages[i + 1]?.player_id;
@@ -40,12 +40,12 @@ const Chat: React.FC = () => {
               <div
                 key={i}
                 className={`chat__item 
-                  ${msg.player_id === currentPlayer.id ? 'right' : ''} 
+                  ${msg.player_id === currentPlayer?.id ? 'right' : ''} 
                   ${last ? 'last' : middle ? 'middle' : 'first'}
                 `}
               >
                 <div className="chat__avatar">
-                  {messages[i].player_id != messages[i - 1]?.player_id ? (
+                  {last ? (
                     <Avatar
                       {...offlinePlayers[msg.player_id]?.avatar}
                       {...players[msg.player_id]?.avatar}

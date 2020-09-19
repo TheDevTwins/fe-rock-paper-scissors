@@ -19,24 +19,26 @@ const UserList: React.FC = () => {
   const isAdmin = useSelector(selectors.isAdmin);
 
   return (
-    <div className="userList">
-      {players.map(player => (
-        <div key={player.id} className="userList__player">
-          <div className="userList__avatar">
-            <Avatar {...player.avatar} />
+    <div className="userList scroll">
+      <div className="userList__container scroll__container">
+        {players.map(player => (
+          <div key={player.id} className="userList__player">
+            <div className="userList__avatar">
+              <Avatar {...player.avatar} />
+            </div>
+            <div className="userList__name">
+              {player.name}
+              {player.is_admin ? <CrownOutlined className="crown" /> : ''}
+            </div>
+            <div
+              className={`userList__type ${
+                player.player_type ? 'player' : 'spectator'
+              }`}
+            ></div>
+            {isAdmin && !player.is_admin && <div className="userList__kick" />}
           </div>
-          <div className="userList__name">
-            {player.name}
-            {player.is_admin ? <CrownOutlined className="crown" /> : ''}
-          </div>
-          <div
-            className={`userList__type ${
-              player.player_type ? 'player' : 'spectator'
-            }`}
-          ></div>
-          {isAdmin && !player.is_admin && <div className="userList__kick" />}
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
