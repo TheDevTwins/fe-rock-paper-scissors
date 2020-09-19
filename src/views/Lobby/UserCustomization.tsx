@@ -28,13 +28,13 @@ const UserCustomization: React.FC = () => {
   };
 
   const randomAvatarVals = () => {
-    const clsLen = avatarClassesLength;
-    return {
-      hat: Math.floor(Math.random() * (clsLen['hat'] - 1)),
-      face: Math.floor(Math.random() * (clsLen['face'] - 1)),
-      skin: Math.floor(Math.random() * (clsLen['skin'] - 1)),
-      shirt: Math.floor(Math.random() * (clsLen['shirt'] - 1)),
+    const vals = {
+      hat: Math.floor(Math.random() * avatarClassesLength['hat']),
+      skin: Math.floor(Math.random() * avatarClassesLength['skin']),
+      face: Math.floor(Math.random() * avatarClassesLength['face']),
+      shirt: Math.floor(Math.random() * avatarClassesLength['shirt']),
     };
+    return vals;
   };
 
   return (
