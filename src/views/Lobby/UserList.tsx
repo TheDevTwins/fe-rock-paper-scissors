@@ -1,9 +1,9 @@
-import { Avatar } from 'components';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectors } from 'state';
 
-import { Player } from 'state';
+import { selectors, Player } from 'state';
+import { Avatar } from 'components';
+import { CrownOutlined } from '@ant-design/icons';
 
 const UserList: React.FC = () => {
   const players = useSelector(selectors.playersList);
@@ -25,14 +25,13 @@ const UserList: React.FC = () => {
           <div className="userList__avatar">
             <Avatar {...player.avatar} />
           </div>
-          <div className="userList__name">{player.name}</div>
+          <div className="userList__name">
+            {player.name}
+            {player.is_admin ? <CrownOutlined className="crown" /> : ''}
+          </div>
           <div
             className={`userList__type ${
-              player.is_admin
-                ? 'admin'
-                : player.player_type
-                ? 'player'
-                : 'spectator'
+              player.player_type ? 'player' : 'spectator'
             }`}
           ></div>
           {isAdmin && !player.is_admin && <div className="userList__kick" />}

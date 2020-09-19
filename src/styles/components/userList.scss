@@ -3,13 +3,9 @@
     flex-direction: column;
     align-items: stretch;
 
-    // & > *:not(:last-child) {
-    //     margin-bottom: 2rem;
-    // }
-
     &__player {
         display: grid;
-        grid-template-columns: 1.5fr 6.5fr 4fr 2rem;
+        grid-template-columns: 1.5fr 7fr 3.5fr 2rem;
         column-gap: 2rem;
         align-items: center;
         padding: 1rem;
@@ -23,7 +19,10 @@
     &__name {
         font-family: $font-1;
         color: $color-blue;
-        overflow: hidden;
+
+        & .crown {
+            color: $color-orange;
+        }
     }
 
     &__type {
