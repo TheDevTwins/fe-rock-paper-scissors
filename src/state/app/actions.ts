@@ -42,8 +42,19 @@ appManager.createSocketListener<types.Player, AppState>(
 appManager.createSocketListener<types.Player, AppState>(
   'player_left',
   (state, result) => {
-    state.offline.players[result.id] = state.players[result.id];
+    // remove admin rights from offline players
+    state.offline.players[result.id] = {
+      ...state.players[result.id],
+      is_admin: 0,
+    };
     delete state.players[result.id];
+  }
+);
+
+appManager.createSocketListener<{ player_id: number }, AppState>(
+  'admin_updated',
+  (state, result) => {
+    state.players[result.player_id].is_admin = 1;
   }
 );
 
