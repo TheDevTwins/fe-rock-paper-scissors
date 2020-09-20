@@ -13,15 +13,11 @@ const Home: React.FC = () => {
 
   return (
     <div className="home defaultBg">
-      <header className="home__header">
-        <Logo />
-      </header>
-      <main className="home__container">
-        <RpsAnimation />
-        <div onClick={() => dispatch(createSession({}))} className="home__btn">
-          <span className="home__btn-text">New Game</span>
-        </div>
-      </main>
+      <Logo />
+      <RpsAnimation />
+      <div onClick={() => dispatch(createSession({}))} className="home__btn">
+        <span className="home__btn-text">New Game</span>
+      </div>
     </div>
   );
 };

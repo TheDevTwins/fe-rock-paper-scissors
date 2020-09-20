@@ -81,7 +81,7 @@ const RpsAnimation: React.FC = () => {
     });
 
     setCounter(counter != states.length - 1 ? counter + 1 : 0);
-  }, 1000 * 3);
+  }, 1000 * 2);
 
   return (
     <div className="rps">
