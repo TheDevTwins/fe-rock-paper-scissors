@@ -29,13 +29,13 @@
     &__list--left &__img {
         transform: rotate(90deg);
 
-        &.fadeIn {animation: leftFadeIn .3s forwards;}
-        &.fadeOut {animation: leftFadeOut .3s forwards;}
+        &.fadeIn {animation: .3s leftFadeIn forwards;}
+        &.fadeOut {animation: .3s leftFadeOut forwards;}
     }
     &__list--right &__img {
         transform: rotate(-90deg) rotateY(180deg);
 
-        &.fadeIn {animation: rightFadeIn .3s forwards;}
-        &.fadeOut {animation: rightFadeOut .3s forwards;}
+        &.fadeIn {animation: .3s rightFadeIn forwards;}
+        &.fadeOut {animation: .3s rightFadeOut forwards;}
     }
 }

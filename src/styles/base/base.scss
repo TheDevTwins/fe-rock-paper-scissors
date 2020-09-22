@@ -12,6 +12,7 @@ body {
     font-size: 1.6rem;
     font-family: $font-1;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .defaultBg {
@@ -20,8 +21,4 @@ body {
         $color-purple);
     background-size: cover;
     background-repeat: no-repeat;
-
-    &--fixed {
-        background-position: fixed;
-    }
 }
