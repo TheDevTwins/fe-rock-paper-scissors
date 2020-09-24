@@ -27,3 +27,59 @@
     transition: all .2s;
     cursor: pointer;
 }
+
+// MEDIA QUERIES
+// Used the breakpoints provided by antd to minimize the ammount
+//  of them and handle unexpected responsive designs from antd
+//  components
+// Do not change these values
+
+/* 
+  Name          Code        Unit(px)    Unit(em)
+* Mobile S      mobileS     320px       20em
+* Mobile M      mobileM     375px       23.4375em
+* Mobile L      mobileL     425px       26.5625em
+* Tablet        tab         768px       48em
+* Laptop        laptop      1024px      64em
+* Laptop L      laptopL     1440px      90em
+* 4k            large       > 1440px    > 90em
+*/
+
+@mixin respond($br) {
+    @if ($br == mobileS) {
+        @media only screen and (max-width: 20em){
+            @content
+        };
+    }
+    @if ($br == mobileM) {
+        @media only screen and (max-width: 23.4375em){
+            @content
+        };
+    }
+    @if ($br == mobileL) {
+        @media only screen and (max-width: 26.5625em){
+            @content
+        };
+    }
+    @if ($br == tab) {
+        @media only screen and (max-width: 48em){
+            @content
+        };
+    }
+    @if ($br == laptop) {
+        @media only screen and (max-width: 64em){
+            @content
+        };
+    }
+    @if ($br == laptopL) {
+        @media only screen and (max-width: 90em){
+            @content
+        };
+    }
+
+    @if ($br == laptopL) {
+        @media only screen and (min-width: 90em){
+            @content
+        };
+    }
+}
