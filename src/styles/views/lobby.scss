@@ -9,7 +9,6 @@
     &__header {
         display: flex;
         flex-direction: row;
-        //justify-content: space-between;
 
         & > *:not(:last-child) {
             margin-right: 2rem;
@@ -24,6 +23,7 @@
         height: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(43rem, 4fr));
+        justify-content: center;
         column-gap: 5rem;
         row-gap: 5rem;
     }

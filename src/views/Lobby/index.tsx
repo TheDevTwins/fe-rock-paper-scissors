@@ -66,14 +66,29 @@ const Lobby: React.FC = () => {
     { title: 'Chat', content: <Chat /> },
   ];
 
-  const createPanel = (panel: Panel, key: number) => {
+  const createDefaultPanel = (index: number, key: number) => {
     return (
       <div className="lobby__panel" key={key}>
         <div className="lobby__title">
-          {panel.title}
-          {panel.titleAdd}
+          {panels[index].title}
+          {panels[index].titleAdd}
         </div>
-        {panel.content}
+        {panels[index].content}
+      </div>
+    );
+  };
+  const createTabsPanel = (children: number[], key = 0) => {
+    return (
+      <div className="lobby__panel" key={key}>
+        <Tabs defaultActiveKey="1">
+          {children.map(index => {
+            return (
+              <TabPane tab={panels[index].title} key={index.toString()}>
+                {panels[index].content}
+              </TabPane>
+            );
+          })}
+        </Tabs>
       </div>
     );
   };
@@ -84,36 +99,13 @@ const Lobby: React.FC = () => {
     switch (panelState) {
       case 0:
         return (
-          <div className="lobby__panels">
-            <div className="lobby__panel">
-              <Tabs defaultActiveKey="1">
-                <TabPane tab={panels[0].title} key="0">
-                  {panels[0].content}
-                </TabPane>
-                <TabPane tab={panels[1].title} key="1">
-                  {panels[1].content}
-                </TabPane>
-                <TabPane tab={panels[2].title} key="2">
-                  {panels[2].content}
-                </TabPane>
-              </Tabs>
-            </div>
-          </div>
+          <div className="lobby__panels">{createTabsPanel([0, 1, 2])}</div>
         );
       case 1: {
         return (
           <div className="lobby__panels">
-            {createPanel(panels[0], 0)}
-            <div className="lobby__panel">
-              <Tabs defaultActiveKey="1">
-                <TabPane tab={panels[1].title} key="1">
-                  {panels[1].content}
-                </TabPane>
-                <TabPane tab={panels[2].title} key="2">
-                  {panels[2].content}
-                </TabPane>
-              </Tabs>
-            </div>
+            {createDefaultPanel(0, 0)}
+            {createTabsPanel([1, 2], 1)}
           </div>
         );
       }
@@ -121,7 +113,7 @@ const Lobby: React.FC = () => {
         return (
           <div className="lobby__panels">
             {panels.map((panel, i) => {
-              return createPanel(panel, i);
+              return createDefaultPanel(i, i);
             })}
           </div>
         );
