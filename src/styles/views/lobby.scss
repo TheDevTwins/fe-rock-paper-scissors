@@ -36,12 +36,47 @@
         display: grid;
         grid-template-rows: auto 1fr;
         grid-auto-rows: min-content;
+
+        & .ant-tabs {
+            grid-row: 2 / 3;
+            display: flex;
+            flex-direction: column;
+
+            &-content {
+                flex: 1;
+            }
+            
+            &-tabpane > * {
+                height: 100%;
+            }
+
+            &-tab {
+                color: $color-blue;
+                font-size: 2rem;
+                font-family: $font-2;
+                line-height: 1;
+                padding: 0 0 1rem 0;
+    
+                &:hover,
+                &-active {
+                    color: $color-purple;
+                }
+            }
+
+            &-bar {
+                margin: 0 0 2rem 0;
+                border-color: $color-blue;
+            }
+
+            &-ink-bar {
+                background-color: $color-purple;
+            }
+        }
     }
 
     &__title {
         color: $color-blue;
         font-size: 2rem;
-        letter-spacing: .1red;
         font-family: $font-2;
         line-height: 1;
         padding-bottom: 1rem;
