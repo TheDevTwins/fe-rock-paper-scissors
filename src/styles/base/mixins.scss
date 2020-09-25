@@ -46,6 +46,7 @@
 */
 
 @mixin respond($br) {
+    // Max
     @if ($br == mobileS) {
         @media only screen and (max-width: 20em){
             @content
@@ -76,7 +77,7 @@
             @content
         };
     }
-
+    // Min
     @if ($br == laptopL) {
         @media only screen and (min-width: 90em){
             @content
