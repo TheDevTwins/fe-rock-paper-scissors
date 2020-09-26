@@ -34,7 +34,7 @@ const UserList: React.FC = () => {
               className={`userList__type ${
                 player.player_type ? 'player' : 'spectator'
               }`}
-            ></div>
+            />
             {isAdmin && !player.is_admin && <div className="userList__kick" />}
           </div>
         ))}

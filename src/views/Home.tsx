@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import { Logo, RpsAnimation } from 'components';
 
-import { createSession } from '../state/app/actions';
+import { createSession } from 'state';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();

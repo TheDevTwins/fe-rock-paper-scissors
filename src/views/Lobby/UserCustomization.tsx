@@ -7,17 +7,18 @@ import {
   updatePlayerType,
   selectors,
   Avatar as AvatarType,
+  PLAYER,
+  SPECTATOR,
 } from 'state';
 
 import { Avatar } from 'components';
 
 import { avatarClassesLength } from '../../components/Avatar';
+import { Simulate } from 'react-dom/test-utils';
 
 const UserCustomization: React.FC = () => {
   const dispatch = useDispatch();
   const player = useSelector(selectors.currentPlayer);
-
-  const [playerType, setPlayerType] = useState(1);
 
   const updateAvatarVals = (propType: string, i: number) => {
     const len = avatarClassesLength[propType as keyof AvatarType];
@@ -36,6 +37,8 @@ const UserCustomization: React.FC = () => {
     };
     return vals;
   };
+
+  if (!player) return null;
 
   return (
     <div className="userCustom">
@@ -75,21 +78,21 @@ const UserCustomization: React.FC = () => {
       <div className="playerType">
         <div
           onClick={() => {
-            if (playerType === 0 && player)
-              dispatch(updatePlayerType({ player_type: 1 }));
-            setPlayerType(1);
+            if (player.player_type === PLAYER && player)
+              dispatch(updatePlayerType({ player_type: SPECTATOR }));
           }}
-          className={`playerType__option ${playerType ? 'active' : ''}`}
+          className={`playerType__option ${player.player_type ? 'active' : ''}`}
         >
           Player
         </div>
         <div
           onClick={() => {
-            if (playerType === 1 && player)
-              dispatch(updatePlayerType({ player_type: 0 }));
-            setPlayerType(0);
+            if (player.player_type === SPECTATOR && player)
+              dispatch(updatePlayerType({ player_type: PLAYER }));
           }}
-          className={`playerType__option ${!playerType ? 'active' : ''}`}
+          className={`playerType__option ${
+            !player.player_type ? 'active' : ''
+          }`}
         >
           Spectator
         </div>

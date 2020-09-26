@@ -8,3 +8,6 @@ export const STATUSES = {
   [PLAYING]: 'playing',
   [FINISHED]: 'finished',
 };
+
+export const PLAYER = 0;
+export const SPECTATOR = 1;

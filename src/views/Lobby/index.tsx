@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
@@ -13,6 +13,8 @@ import { Logo, Chat } from 'components';
 import UserCustomization from './UserCustomization';
 import UserList from './UserList';
 import ShareLink from './ShareLink';
+
+import { Panel } from './types';
 
 const Lobby: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,31 +33,29 @@ const Lobby: React.FC = () => {
   const [panelState, setPanelState] = useState(2);
   const intervals = [0, 1010, 1490, 99999]; // pixel breakpoints i decided are good
 
-  // Update interval only if it has changed
-  const updatePanelState = () => {
-    const width = window.innerWidth;
-    const getInterval = (index: number) =>
-      width >= intervals[index] && width < intervals[index + 1];
-    if (!getInterval(panelState)) {
-      for (let i = 0; i < intervals.length - 1; i++) {
-        if (getInterval(i)) {
-          setPanelState(i);
+  useLayoutEffect(() => {
+    // Update interval only if it has changed
+    const updatePanelState = () => {
+      const width = window.innerWidth;
+      const getInterval = (index: number) =>
+        width >= intervals[index] && width < intervals[index + 1];
+      if (!getInterval(panelState)) {
+        for (let i = 0; i < intervals.length - 1; i++) {
+          if (getInterval(i)) {
+            setPanelState(i);
+          }
         }
       }
-    }
-  };
-  // Call it on launch since its a resize event
-  updatePanelState();
-  window.addEventListener('resize', updatePanelState);
+    };
+    // Call it on launch since its a resize event
+    updatePanelState();
+    window.addEventListener('resize', updatePanelState);
+
+    // Remove the event listener when the component is unmounted
+    return () => window.removeEventListener('resize', updatePanelState);
+  });
 
   // Panel data
-
-  type Panel = {
-    title: string;
-    titleAdd?: JSX.Element;
-    content: JSX.Element;
-  };
-
   const panels: Panel[] = [
     { title: 'Player', content: <UserCustomization /> },
     {
@@ -98,24 +98,22 @@ const Lobby: React.FC = () => {
   const createMockup = () => {
     switch (panelState) {
       case 0:
-        return (
-          <div className="lobby__panels">{createTabsPanel([0, 1, 2])}</div>
-        );
+        return <>{createTabsPanel([0, 1, 2])}</>;
       case 1: {
         return (
-          <div className="lobby__panels">
+          <>
             {createDefaultPanel(0, 0)}
             {createTabsPanel([1, 2], 1)}
-          </div>
+          </>
         );
       }
       default: {
         return (
-          <div className="lobby__panels">
+          <>
             {panels.map((panel, i) => {
               return createDefaultPanel(i, i);
             })}
-          </div>
+          </>
         );
       }
     }
@@ -130,7 +128,9 @@ const Lobby: React.FC = () => {
         <div className="startGame">Start Game</div>
         <ShareLink />
       </header>
-      <div className="wrapper">{mockup}</div>
+      <div className="wrapper">
+        <div className="lobby__panels">{mockup}</div>
+      </div>
     </div>
   );
 };
