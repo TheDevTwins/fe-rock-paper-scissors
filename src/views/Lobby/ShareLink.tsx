@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Clipboard from 'react-clipboard.js';
 
 import { CopyFilled } from '@ant-design/icons';
@@ -14,11 +14,17 @@ const ShareLink: React.FC = () => {
     currentBreakpointState()
   );
 
-  window.addEventListener('resize', () => {
-    const br = currentBreakpointState();
-    if (breakpointState != br) {
-      setBreakpointState(br);
-    }
+  useLayoutEffect(() => {
+    const updateBreakpoint = () => {
+      const br = currentBreakpointState();
+      if (breakpointState != br) {
+        setBreakpointState(br);
+      }
+    };
+
+    window.addEventListener('resize', updateBreakpoint);
+
+    return () => window.removeEventListener('resize', updateBreakpoint);
   });
 
   return (
