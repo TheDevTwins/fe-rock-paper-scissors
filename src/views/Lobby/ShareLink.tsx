@@ -24,7 +24,7 @@ const ShareLink: React.FC = () => {
   return (
     <div className="shareLink">
       <div className="shareLink__text">
-        {breakpointState ? 'ID: ' : 'Share this link: '}
+        {breakpointState ? 'Lobby id: ' : 'Share this link: '}
       </div>
       <div className="shareLink__link">{breakpointState ? id : link}</div>
       <Clipboard className="shareLink__btn" data-clipboard-text={link}>
