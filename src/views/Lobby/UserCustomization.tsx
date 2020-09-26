@@ -14,7 +14,6 @@ import {
 import { Avatar } from 'components';
 
 import { avatarClassesLength } from '../../components/Avatar';
-import { Simulate } from 'react-dom/test-utils';
 
 const UserCustomization: React.FC = () => {
   const dispatch = useDispatch();
