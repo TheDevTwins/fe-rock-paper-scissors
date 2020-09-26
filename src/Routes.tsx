@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { Home, Lobby } from './views';
+import { Home, Lobby, Game, DataRetriever } from './views';
 
-import { selectors } from 'state';
+import { selectors, PENDING } from 'state';
 
 const Routes: React.FC = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,8 @@ const Routes: React.FC = () => {
   return (
     <Switch>
       <Route exact path="/session/:id">
-        <Lobby />
+        <DataRetriever />
+        {!session || session.status === PENDING ? <Lobby /> : <Game />}
       </Route>
       {session && <Redirect to={`/session/${session.id}`} />}
       <Route exact path="/">

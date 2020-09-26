@@ -16,6 +16,7 @@ export type Player = {
   player_type: number;
   is_admin: number;
   avatar: Avatar;
+  pick: number;
 };
 
 export type Message = {

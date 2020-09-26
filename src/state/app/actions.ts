@@ -1,6 +1,7 @@
 import { appManager, AppState } from './manager';
 import { addElementToIndexedArray, IndexedArray } from 'services';
 import * as types from './types';
+import { PLAYING } from './constants';
 
 export const createSession = appManager.createApi<
   unknown,
@@ -103,4 +104,12 @@ appManager.createSocketListener<types.Message, AppState>(
 
 export const sendMessage = appManager.createSocketAction<{ message: string }>(
   'send_message'
+);
+
+export const startGame = appManager.createSocketAction('start_game');
+appManager.createSocketListener<unknown, AppState>(
+  'game_started',
+  (state, result) => {
+    state.session.status = PLAYING;
+  }
 );

@@ -7,6 +7,7 @@ import {
   connectToSessionSocket,
   disconnectFromSessionSocket,
   retrieveSession,
+  startGame,
 } from 'state';
 
 import { Logo, Chat } from 'components';
@@ -18,16 +19,6 @@ import { Panel } from './types';
 
 const Lobby: React.FC = () => {
   const dispatch = useDispatch();
-  const { id } = useParams() as any;
-
-  useEffect(() => {
-    dispatch(connectToSessionSocket('', id));
-    dispatch(retrieveSession({ id: id }));
-
-    return () => {
-      dispatch(disconnectFromSessionSocket('', id));
-    };
-  }, [dispatch, id]);
 
   // Define window size breakpoints
   const [panelState, setPanelState] = useState(2);
@@ -125,7 +116,9 @@ const Lobby: React.FC = () => {
     <div className="lobby defaultBg">
       <header className="wrapper lobby__header">
         <Logo />
-        <div className="startGame">Start Game</div>
+        <div className="startGame" onClick={() => dispatch(startGame({}))}>
+          Start Game
+        </div>
         <ShareLink />
       </header>
       <div className="wrapper">
