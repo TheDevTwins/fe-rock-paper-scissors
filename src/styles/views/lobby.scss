@@ -6,6 +6,11 @@
     column-gap: 5rem;
     row-gap: 5rem;
 
+    @include respond(laptop) {
+        padding: 2rem 0;
+        row-gap: 2.7rem;
+    }
+
     &__header {
         display: flex;
         flex-direction: row;
