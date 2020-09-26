@@ -22,7 +22,10 @@ const UserList: React.FC = () => {
     <div className="userList scroll">
       <div className="userList__container scroll__container">
         {players.map(player => (
-          <div key={player.id} className="userList__player">
+          <div
+            key={player.id}
+            className={`userList__player ${isAdmin ? 'admin' : ''}`}
+          >
             <div className="userList__avatar">
               <Avatar {...player.avatar} />
             </div>

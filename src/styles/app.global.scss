@@ -4,11 +4,11 @@
  */
 @import '~antd/dist/antd.min.css';
 
+@import 'base/mixins.scss';
 @import 'base/variables.scss';
 @import 'base/animations.scss';
 @import 'base/base.scss';
 @import 'base/typography.scss';
-@import 'base/mixins.scss';
 
 @import 'layout/wrapper.scss';
 @import 'layout/grid.scss';

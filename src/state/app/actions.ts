@@ -32,7 +32,7 @@ export const retrieveSession = appManager.createApi<
 appManager.createSocketListener<types.Player, AppState>(
   'player_joined',
   (state, result) => {
-    if (Object.keys(state.players).length == 0) {
+    if (!state.selfId) {
       state.selfId = result.id;
     }
     addElementToIndexedArray(state.players, result);

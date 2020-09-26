@@ -34,7 +34,7 @@
 //  components
 // Do not change these values
 
-/* 
+/* By Google
   Name          Code        Unit(px)    Unit(em)
 * Mobile S      mobileS     320px       20em
 * Mobile M      mobileM     375px       23.4375em
@@ -45,7 +45,19 @@
 * 4k            large       > 1440px    > 90em
 */
 
+/* By antd
+* Name          Code        Unit(px)    Unit(em)
+                xs          480px       
+                sm          576px       36em
+                md          768px
+                lg          992px
+                xl          1200px
+                xxl         1600px
+*/
+
 @mixin respond($br) {
+    // GOOGLE
+
     // Max
     @if ($br == mobileS) {
         @media only screen and (max-width: 20em){
@@ -80,6 +92,15 @@
     // Min
     @if ($br == laptopL) {
         @media only screen and (min-width: 90em){
+            @content
+        };
+    }
+
+    // ANTD
+
+    // Max 
+    @if ($br == sm) {
+        @media only screen and (max-width: 36em){
             @content
         };
     }

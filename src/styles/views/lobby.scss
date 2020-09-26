@@ -31,20 +31,23 @@
                 width: 100%;
                 text-align: center;
                 margin-bottom: 2rem;
+                font-size: 4rem;
             }
         }
     }
     
     &__panels {
         height: 100%;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(43rem, 4fr));
+        display: flex;
         justify-content: center;
-        column-gap: 5rem;
-        row-gap: 5rem;
     }
 
     &__panel {
+        flex: 0 1 55rem;
+        &:not(:last-child) {
+            margin-right: 5rem;
+        }
+
         background-color: rgba(#fff, 1);
         border-radius: 3rem;
         padding: 3rem;

@@ -31,7 +31,7 @@ const Lobby: React.FC = () => {
 
   // Define window size breakpoints
   const [panelState, setPanelState] = useState(2);
-  const intervals = [0, 1010, 1490, 99999]; // pixel breakpoints i decided are good
+  const intervals = [0, 1025, 1500, 99999]; // pixel breakpoints i decided are good
 
   useLayoutEffect(() => {
     // Update interval only if it has changed
