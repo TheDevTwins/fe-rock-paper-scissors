@@ -11,3 +11,13 @@ export const STATUSES = {
 
 export const PLAYER = 0;
 export const SPECTATOR = 1;
+
+export const ROCK = 0;
+export const PAPER = 1;
+export const SCISSORS = 2;
+
+export const PICKS = {
+  [ROCK]: 'rock',
+  [PAPER]: 'paper',
+  [SCISSORS]: 'scissors',
+};

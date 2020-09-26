@@ -113,3 +113,25 @@ appManager.createSocketListener<unknown, AppState>(
     state.session.status = PLAYING;
   }
 );
+
+export const makePick = appManager.createSocketAction<{ pick: number }>(
+  'make_pick'
+);
+appManager.createSocketListener<{ player_id: number }, AppState>(
+  'player_picked',
+  (state, result) => {
+    state.players[result.player_id].pick = true;
+  }
+);
+
+appManager.createSocketListener<
+  { player_id: number; points: number; pick: number }[],
+  AppState
+>('picks_revealed', (state, result) => {
+  result.forEach(item => {
+    state.players[item.player_id] = {
+      ...state.players[item.player_id],
+      ...item,
+    };
+  });
+});
