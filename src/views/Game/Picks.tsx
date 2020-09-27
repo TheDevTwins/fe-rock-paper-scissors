@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from 'antd';
@@ -6,9 +6,13 @@ import { PICKS, selectors, makePick } from 'state';
 
 const Picks: React.FC = () => {
   const dispatch = useDispatch();
-  const player = useSelector(selectors.currentPlayer);
+  const { timer } = useSelector(selectors.session);
 
   const [pick, setPick] = useState('');
+
+  useEffect(() => {
+    if (!timer) setPick('');
+  }, [timer]);
 
   return (
     <div>

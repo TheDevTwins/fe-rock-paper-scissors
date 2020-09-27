@@ -21,3 +21,13 @@ export const PICKS = {
   [PAPER]: 'paper',
   [SCISSORS]: 'scissors',
 };
+
+export const IN_GAME = 0;
+export const LOST = 1;
+export const WON = 2;
+
+export const PLAYER_STATES = {
+  [IN_GAME]: 'in game',
+  [LOST]: 'lost',
+  [WON]: 'won',
+};

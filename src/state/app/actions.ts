@@ -125,7 +125,7 @@ appManager.createSocketListener<{ player_id: number }, AppState>(
 );
 
 appManager.createSocketListener<
-  { player_id: number; points: number; pick: number }[],
+  ({ player_id: number } & types.Player)[],
   AppState
 >('picks_revealed', (state, result) => {
   result.forEach(item => {
@@ -135,3 +135,8 @@ appManager.createSocketListener<
     };
   });
 });
+
+appManager.createSocketListener<{ value: number }, AppState>(
+  'timer_updated',
+  (state, result) => (state.session.timer = result.value)
+);
