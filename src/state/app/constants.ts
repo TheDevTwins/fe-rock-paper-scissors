@@ -9,5 +9,5 @@ export const STATUSES = {
   [FINISHED]: 'finished',
 };
 
-export const PLAYER = 0;
-export const SPECTATOR = 1;
+export const PLAYER = 1;
+export const SPECTATOR = 0;

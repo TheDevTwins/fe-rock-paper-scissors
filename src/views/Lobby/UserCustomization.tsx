@@ -77,8 +77,8 @@ const UserCustomization: React.FC = () => {
       <div className="playerType">
         <div
           onClick={() => {
-            if (player.player_type === PLAYER && player)
-              dispatch(updatePlayerType({ player_type: SPECTATOR }));
+            if (player.player_type === SPECTATOR && player)
+              dispatch(updatePlayerType({ player_type: PLAYER }));
           }}
           className={`playerType__option ${player.player_type ? 'active' : ''}`}
         >
@@ -86,8 +86,8 @@ const UserCustomization: React.FC = () => {
         </div>
         <div
           onClick={() => {
-            if (player.player_type === SPECTATOR && player)
-              dispatch(updatePlayerType({ player_type: PLAYER }));
+            if (player.player_type === PLAYER && player)
+              dispatch(updatePlayerType({ player_type: SPECTATOR }));
           }}
           className={`playerType__option ${
             !player.player_type ? 'active' : ''

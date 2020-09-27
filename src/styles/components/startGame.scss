@@ -14,12 +14,6 @@
     background-color: #fff;
     color: $color-orange;
     box-shadow: 0 0 2rem 0.5rem rgba($color-orange, 0.2);
-
-    // @include respond(xs) {
-    //     padding: .5rem 1rem;
-    //     font-size: 1.1rem;
-    //     font-weight: 400;
-    // }
     
     &:focus,
     &:hover {
