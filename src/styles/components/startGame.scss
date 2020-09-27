@@ -1,13 +1,28 @@
 .startGame {
-    @include btn;
+    font-family: $font-1;
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 15rem;
+    transition: all .2s;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
     background-color: #fff;
     color: $color-orange;
+    box-shadow: 0 0 2rem 0.5rem rgba($color-orange, 0.2);
+
+    // @include respond(xs) {
+    //     padding: .5rem 1rem;
+    //     font-size: 1.1rem;
+    //     font-weight: 400;
+    // }
     
+    &:focus,
     &:hover {
-        box-shadow: 0 0 2rem 0.5rem rgba($color-red, 0.2);
+        color: $color-red;
     }
 }

@@ -7,9 +7,13 @@
 html {
     font-size: 62.5%;
 
-    // @include respond(tab) {
-    //     font-size: 58%;
-    // }
+    @include respond(xs) {
+        font-size: 55%;
+    }
+
+    @include respond(mobileS) {
+        font-size: 45%;
+    }
 }
 
 body {

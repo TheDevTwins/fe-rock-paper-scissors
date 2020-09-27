@@ -1,13 +1,15 @@
 .shareLink {
     display: flex;
     align-items: center;
-    //padding: 1rem 2rem;
     background-color: #fff;
     border-radius: 40rem;
     overflow: hidden;
-    box-shadow: 0 0 2rem 2rem rgba($color-purple, 0.2);
     border: .2rem solid #fff;
     padding-left: 2rem;
+
+    @include respond(xs) {
+        padding-left: 1rem;
+    }
 
     & > *:not(:last-child) {
         margin-right: 1rem;
@@ -18,7 +20,7 @@
     }
 
     &__link {
-        color: $color-purple;
+        color: $color-orange;
         transition: all .2s;
     }
 
@@ -26,17 +28,23 @@
         outline: 0;
         border: none;
         background: none;
-        background-color: $color-purple;
+        background-color: $color-orange;
         color: #fff;
         height: 100%;
         padding: 1rem 2rem 1rem 1.5rem;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
         transition: all .2s;
         cursor: pointer;
+
+        @include respond(xs) {
+            padding: 0 1rem 0 .75rem;
+        }
 
         &:focus,
         &:hover {
             outline: 0;
-            background-color: $color-blue;
+            background-color: $color-red;
         }
     }
 }

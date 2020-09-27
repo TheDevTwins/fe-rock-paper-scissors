@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 
 import { Tabs } from 'antd';
@@ -7,6 +7,7 @@ import {
   connectToSessionSocket,
   disconnectFromSessionSocket,
   retrieveSession,
+  selectors,
 } from 'state';
 
 import { Logo, Chat } from 'components';
@@ -17,6 +18,7 @@ import ShareLink from './ShareLink';
 import { Panel } from './types';
 
 const Lobby: React.FC = () => {
+  const isAdmin = useSelector(selectors.isAdmin);
   const dispatch = useDispatch();
   const { id } = useParams() as any;
 
@@ -80,7 +82,7 @@ const Lobby: React.FC = () => {
   const createTabsPanel = (children: number[], key = 0) => {
     return (
       <div className="lobby__panel" key={key}>
-        <Tabs defaultActiveKey="1">
+        <Tabs defaultActiveKey="0">
           {children.map(index => {
             return (
               <TabPane tab={panels[index].title} key={index.toString()}>
@@ -125,7 +127,7 @@ const Lobby: React.FC = () => {
     <div className="lobby defaultBg">
       <header className="wrapper lobby__header">
         <Logo />
-        <div className="startGame">Start Game</div>
+        {isAdmin ? <div className="startGame">Start Game</div> : ''}
         <ShareLink />
       </header>
       <div className="wrapper">

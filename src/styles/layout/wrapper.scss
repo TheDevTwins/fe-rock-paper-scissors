@@ -5,6 +5,10 @@
     margin: 0 auto;
     padding: 0 5rem;
 
+    @include respond(sm) {
+        padding: 0 2rem;
+    }
+
     &--vertical {
         padding: 5rem;
     }
