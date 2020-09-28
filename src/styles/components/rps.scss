@@ -2,12 +2,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    width: 50rem;
 
-    & > *:not(:last-child) {
-        margin-right: 15rem;
+    & > *:first-child {
+        margin-right: 5rem;
     }
 
     &__list {
+        flex: 1 1;
         display: grid;
         grid-template-columns: 100%;
         align-items: center;
@@ -15,9 +18,7 @@
     }
 
     &__img {
-        height: 25rem;
-        width: auto;
-
+        width: 100%;
         grid-area: 1 / 1 / 2 / 2;
         visibility: hidden;
 
@@ -27,13 +28,12 @@
     }
 
     &__list--left &__img {
-        transform: rotate(90deg);
 
         &.fadeIn {animation: leftFadeIn .3s forwards;}
         &.fadeOut {animation: leftFadeOut .3s forwards;}
     }
     &__list--right &__img {
-        transform: rotate(-90deg) rotateY(180deg);
+        transform: rotate(180deg) rotateX(180deg);
 
         &.fadeIn {animation: rightFadeIn .3s forwards;}
         &.fadeOut {animation: rightFadeOut .3s forwards;}
