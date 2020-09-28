@@ -34,6 +34,12 @@
                 font-size: 4rem;
             }
         }
+
+        .startGame {
+            @include respond(xs) {
+                margin-right: 1rem;
+            }
+        }
     }
     
     &__panels {

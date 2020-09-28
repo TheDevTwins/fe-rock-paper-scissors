@@ -7,10 +7,6 @@
     border: .2rem solid #fff;
     padding-left: 2rem;
 
-    @include respond(xs) {
-        padding-left: .75rem;
-    }
-
     & > *:not(:last-child) {
         margin-right: 1rem;
     }
@@ -36,10 +32,6 @@
         border-bottom-right-radius: 5rem;
         transition: all .2s;
         cursor: pointer;
-
-        @include respond(xs) {
-            padding: 0 1rem 0 .75rem;
-        }
 
         &:focus,
         &:hover {
