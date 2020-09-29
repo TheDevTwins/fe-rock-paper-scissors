@@ -6,22 +6,71 @@
     align-items: center;
     justify-content: space-evenly;
 
-    & .logo {
-        font-size: 10rem;
-    }
-
     & > * {
         margin: 1rem;
     }
 
+    & .logo {
+        font-size: 10rem;
+
+        @include respond(lg) {
+            font-size: 8rem;
+        }
+
+        @include respond(md) {
+            font-size: 6.8rem;
+        }
+
+        @include respond(sm) {
+            font-size: 5.5rem;
+        }
+
+        @include respond(xs) {
+            font-size: 4.2rem;
+        }
+
+        @include respond(mobileS) {
+            font-size: 3.5rem;
+        }
+    }
+
+    & .rps {
+        width: 50rem;
+
+        @include respond(lg) {
+            width: 40rem;
+        }
+
+        @include respond(md) {
+            width: 35rem;
+        }
+
+        @include respond(sm) {
+            width: 27rem;
+        }
+    } 
+
     &__btn {
         display: inline-block;
         background-color: #fff;
-        padding: 1.5rem 3rem;
+        padding: .3em 1em;
         cursor: pointer;
         position: relative;
         transition: all .4s;
         backface-visibility: hidden;
+        font-size: 3rem;
+
+        @include respond(lg) {
+            font-size: 2.6rem;
+        }
+
+        @include respond(md) {
+            font-size: 2.3rem;
+        }
+
+        @include respond(sm) {
+            font-size: 2.2rem;
+        }
 
         &,
         &::before {
@@ -29,7 +78,7 @@
         }
 
         &-text {
-            font-size: 3rem;
+            font-size: 100%;
             font-family: $font-2;
             text-transform: uppercase;
             font-weight: 400;

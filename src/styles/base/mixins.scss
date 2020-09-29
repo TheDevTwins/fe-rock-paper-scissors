@@ -49,10 +49,10 @@
 * Name          Code        Unit(px)    Unit(em)
                 xs          480px       30rem
                 sm          576px       36em
-                md          768px
+                md          768px       48em
                 lg          992px       62em
-                xl          1200px
-                xxl         1600px
+                xl          1200px      75em
+                xxl         1600px      100em   
 */
 
 @mixin respond($br) {
@@ -88,7 +88,16 @@
     @if ($br == sm) {
         @media only screen and (max-width: 36em) { @content };
     }
+    @if ($br == md) {
+        @media only screen and (max-width: 48em) { @content };
+    }
     @if ($br == lg) {
         @media only screen and (max-width: 62em) { @content };
+    }
+    @if ($br == xl) {
+        @media only screen and (max-width: 75em) { @content };
+    }
+    @if ($br == xxl) {
+        @media only screen and (max-width: 100em) { @content };
     }
 }
