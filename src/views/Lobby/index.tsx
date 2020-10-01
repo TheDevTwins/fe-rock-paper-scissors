@@ -125,13 +125,15 @@ const Lobby: React.FC = () => {
 
   return (
     <div className="lobby defaultBg">
-      <header className="wrapper lobby__header">
-        <Logo />
-        {isAdmin ? <div className="startGame">Start Game</div> : ''}
-        <ShareLink />
-      </header>
-      <div className="wrapper">
-        <div className="lobby__panels">{mockup}</div>
+      <div className="lobby__container">
+        <header className="wrapper lobby__header">
+          <Logo />
+          {isAdmin ? <div className="startGame">Start Game</div> : ''}
+          <ShareLink />
+        </header>
+        <div className="wrapper">
+          <div className="lobby__panels">{mockup}</div>
+        </div>
       </div>
     </div>
   );

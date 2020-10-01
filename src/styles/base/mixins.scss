@@ -74,6 +74,7 @@
     @if ($br == laptop) {
         @media only screen and (max-width: 64em) { @content };
     }
+    
     // Min
     @if ($br == laptopL) {
         @media only screen and (min-width: 90em) { @content };
@@ -99,5 +100,18 @@
     }
     @if ($br == xxl) {
         @media only screen and (max-width: 100em) { @content };
+    }
+
+    // Custom
+
+    // Min
+    @if ($br == largeS) {
+        @media only screen and (min-width: 120em) { @content };
+    }
+    @if ($br == largeM) {
+        @media only screen and (min-width: 160em) { @content };
+    }
+    @if ($br == largeL) {
+        @media only screen and (min-width: 200em) { @content };
     }
 }

@@ -1,14 +1,21 @@
 .lobby{
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    padding: 5rem 0;
-    column-gap: 5rem;
-    row-gap: 5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
-    @include respond(lg) {
-        padding: 2rem 0;
-        row-gap: 2.7rem;
+    &__container {
+        flex: 0 1 100rem;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        padding: 5rem 0;
+        column-gap: 5rem;
+        row-gap: 5rem;
+
+        @include respond(lg) {
+            padding: 2rem 0;
+            row-gap: 2.7rem;
+        }
     }
 
     &__header {

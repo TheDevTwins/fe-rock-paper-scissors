@@ -14,6 +14,18 @@ html {
     @include respond(mobileS) {
         font-size: 45%;
     }
+
+    @include respond(largeS) {
+        font-size: 70%;
+    }
+
+    @include respond(largeM) {
+        font-size: 90%;
+    }
+
+    @include respond(largeL) {
+        font-size: 110%;
+    }
 }
 
 body {
