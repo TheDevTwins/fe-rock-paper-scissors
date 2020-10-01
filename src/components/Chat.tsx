@@ -62,6 +62,7 @@ const Chat: React.FC = () => {
       </div>
       <div className="chat__actions">
         <input
+          maxLength={200}
           value={messageInput}
           type="text"
           placeholder="Chat"
