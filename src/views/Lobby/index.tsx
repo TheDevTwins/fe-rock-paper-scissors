@@ -8,6 +8,7 @@ import {
   disconnectFromSessionSocket,
   retrieveSession,
   selectors,
+  startGame,
 } from 'state';
 
 import { Logo, Chat } from 'components';
@@ -20,16 +21,6 @@ import { Panel } from './types';
 const Lobby: React.FC = () => {
   const isAdmin = useSelector(selectors.isAdmin);
   const dispatch = useDispatch();
-  const { id } = useParams() as any;
-
-  useEffect(() => {
-    dispatch(connectToSessionSocket('', id));
-    dispatch(retrieveSession({ id: id }));
-
-    return () => {
-      dispatch(disconnectFromSessionSocket('', id));
-    };
-  }, [dispatch, id]);
 
   // Define window size breakpoints
   const [panelState, setPanelState] = useState(2);
@@ -125,15 +116,15 @@ const Lobby: React.FC = () => {
 
   return (
     <div className="lobby defaultBg">
-      <div className="lobby__container">
-        <header className="wrapper lobby__header">
-          <Logo />
-          {isAdmin ? <div className="startGame">Start Game</div> : ''}
-          <ShareLink />
-        </header>
-        <div className="wrapper">
-          <div className="lobby__panels">{mockup}</div>
+      <header className="wrapper lobby__header">
+        <Logo />
+        <div className="startGame" onClick={() => dispatch(startGame({}))}>
+          Start Game
         </div>
+        <ShareLink />
+      </header>
+      <div className="wrapper">
+        <div className="lobby__panels">{mockup}</div>
       </div>
     </div>
   );

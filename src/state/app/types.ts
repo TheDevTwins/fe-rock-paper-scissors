@@ -1,6 +1,7 @@
 export type Session = {
   id: number;
   status: number;
+  timer: number;
 };
 
 export type Avatar = {
@@ -16,6 +17,9 @@ export type Player = {
   player_type: number;
   is_admin: number;
   avatar: Avatar;
+  pick: number | boolean;
+  points: number;
+  state: number;
 };
 
 export type Message = {

@@ -11,3 +11,23 @@ export const STATUSES = {
 
 export const PLAYER = 1;
 export const SPECTATOR = 0;
+
+export const ROCK = 0;
+export const PAPER = 1;
+export const SCISSORS = 2;
+
+export const PICKS = {
+  [ROCK]: 'rock',
+  [PAPER]: 'paper',
+  [SCISSORS]: 'scissors',
+};
+
+export const IN_GAME = 0;
+export const LOST = 1;
+export const WON = 2;
+
+export const PLAYER_STATES = {
+  [IN_GAME]: 'in game',
+  [LOST]: 'lost',
+  [WON]: 'won',
+};

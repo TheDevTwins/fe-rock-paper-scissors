@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CaretLeftOutlined, CaretRightOutlined } from '@ant-design/icons';
 import {
-  updateName,
-  updateAvatar,
-  updatePlayerType,
-  selectors,
   Avatar as AvatarType,
   PLAYER,
+  selectors,
   SPECTATOR,
+  updateAvatar,
+  updateName,
+  updatePlayerType,
 } from 'state';
 
 import { Avatar } from 'components';
@@ -80,7 +80,9 @@ const UserCustomization: React.FC = () => {
             if (player.player_type === SPECTATOR && player)
               dispatch(updatePlayerType({ player_type: PLAYER }));
           }}
-          className={`playerType__option ${player.player_type ? 'active' : ''}`}
+          className={`playerType__option ${
+            player.player_type === PLAYER ? 'active' : ''
+          }`}
         >
           Player
         </div>
@@ -90,7 +92,7 @@ const UserCustomization: React.FC = () => {
               dispatch(updatePlayerType({ player_type: SPECTATOR }));
           }}
           className={`playerType__option ${
-            !player.player_type ? 'active' : ''
+            player.player_type === SPECTATOR ? 'active' : ''
           }`}
         >
           Spectator

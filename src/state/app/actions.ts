@@ -1,6 +1,7 @@
 import { appManager, AppState } from './manager';
 import { addElementToIndexedArray, IndexedArray } from 'services';
 import * as types from './types';
+import { PLAYING } from './constants';
 
 export const createSession = appManager.createApi<
   unknown,
@@ -103,4 +104,39 @@ appManager.createSocketListener<types.Message, AppState>(
 
 export const sendMessage = appManager.createSocketAction<{ message: string }>(
   'send_message'
+);
+
+export const startGame = appManager.createSocketAction('start_game');
+appManager.createSocketListener<unknown, AppState>(
+  'game_started',
+  (state, result) => {
+    state.session.status = PLAYING;
+  }
+);
+
+export const makePick = appManager.createSocketAction<{ pick: number }>(
+  'make_pick'
+);
+appManager.createSocketListener<{ player_id: number }, AppState>(
+  'player_picked',
+  (state, result) => {
+    state.players[result.player_id].pick = true;
+  }
+);
+
+appManager.createSocketListener<
+  ({ player_id: number } & types.Player)[],
+  AppState
+>('picks_revealed', (state, result) => {
+  result.forEach(item => {
+    state.players[item.player_id] = {
+      ...state.players[item.player_id],
+      ...item,
+    };
+  });
+});
+
+appManager.createSocketListener<{ value: number }, AppState>(
+  'timer_updated',
+  (state, result) => (state.session.timer = result.value)
 );
