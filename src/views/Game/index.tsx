@@ -11,12 +11,13 @@ const Game: React.FC = () => {
   const { timer } = useSelector(selectors.session);
 
   return (
-    <div>
-      Game {timer}
-      <Players />
-      <Picks />
-      <Spectators />
-    </div>
+    // <div>
+    //   Game {timer}
+    //   <Players />
+    //   <Picks />
+    //   <Spectators />
+    // </div>
+    <div className="game defaultBg">works</div>
   );
 };
 
