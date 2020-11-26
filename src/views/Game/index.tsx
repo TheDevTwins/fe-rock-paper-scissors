@@ -8,16 +8,18 @@ import Spectators from './Spectators';
 import { selectors } from 'state';
 
 const Game: React.FC = () => {
-  const { timer } = useSelector(selectors.session);
+  // const { timer } = useSelector(selectors.session);
 
   return (
-    // <div>
-    //   Game {timer}
-    //   <Players />
-    //   <Picks />
-    //   <Spectators />
-    // </div>
-    <div className="game defaultBg">works</div>
+    <div className="game defaultBg">
+      <div className="actionBar">
+        <div className="actionBar__item">i</div>
+        <div className="actionBar__item">i</div>
+        <div className="actionBar__item">i</div>
+        <div className="actionBar__item">i</div>
+        <div className="actionBar__item">i</div>
+      </div>
+    </div>
   );
 };
 

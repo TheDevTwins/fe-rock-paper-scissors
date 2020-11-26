@@ -110,7 +110,8 @@ export const startGame = appManager.createSocketAction('start_game');
 appManager.createSocketListener<unknown, AppState>(
   'game_started',
   (state, result) => {
-    state.session.status = PLAYING;
+    // remove this when design is over
+    if (state.session) state.session.status = PLAYING;
   }
 );
 

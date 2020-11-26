@@ -1,0 +1,26 @@
+.actionBar {
+  padding: 1rem;
+  background-color: #fff;
+  width: min-content;
+  margin: 0 auto;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+  display: flex;
+  align-items: center;
+
+  & > *:not(:last-child) {
+    margin-right: 2rem;
+  }
+
+  &__item {
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: 0 0.3rem 0.3rem 0 rgba($color-purple, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
