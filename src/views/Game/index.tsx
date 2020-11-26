@@ -12,6 +12,10 @@ const Game: React.FC = () => {
 
   return (
     <div className="game defaultBg">
+      <div className="sideBar">
+        <div className="sideBar__item">1</div>
+        <div className="sideBar__item">2</div>
+      </div>
       <div className="actionBar">
         <div className="actionBar__item">i</div>
         <div className="actionBar__item">i</div>

@@ -1,4 +1,5 @@
 @import './actionBar.scss';
+@import './sideBar.scss';
 
 .game {
   width: 100%;
@@ -9,5 +10,9 @@
 
   & .actionBar {
     grid-area: 2 / 2 / 3 / 3;
+  }
+
+  & .sideBar {
+    grid-area: 1 / 3 / 3 / 4;
   }
 }
