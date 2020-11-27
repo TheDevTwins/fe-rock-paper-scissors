@@ -1,0 +1,26 @@
+.playerList {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+      border: 1px solid #fff;
+    }
+  }
+
+  &__demo {
+    position: fixed;
+    top: 5rem;
+    left: 5rem;
+  }
+}
