@@ -1,47 +1,50 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 
-    @include respond(xs) {
-        font-size: 55%;
-    }
+  @include respond(xs) {
+    font-size: 55%;
+  }
 
-    @include respond(mobileS) {
-        font-size: 45%;
-    }
+  @include respond(mobileS) {
+    font-size: 45%;
+  }
 
-    @include respond(largeS) {
-        font-size: 70%;
-    }
+  @include respond(largeS) {
+    font-size: 70%;
+  }
 
-    @include respond(largeM) {
-        font-size: 90%;
-    }
+  @include respond(largeM) {
+    font-size: 90%;
+  }
 
-    @include respond(largeL) {
-        font-size: 110%;
-    }
+  @include respond(largeL) {
+    font-size: 110%;
+  }
 }
 
 body {
-    font-size: 1.6rem;
-    font-family: $font-1;
-    box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: $font-1;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .defaultBg {
-    background-image: linear-gradient(to right bottom,
-        $color-blue,
-        $color-purple);
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-blue,
+    $color-purple
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
 
-    &--fixed {
-        background-position: fixed;
-    }
+  &--fixed {
+    background-position: fixed;
+  }
 }

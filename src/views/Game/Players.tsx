@@ -14,13 +14,13 @@ const Players: React.FC = () => {
     width: string;
     height: string;
   };
-  const GAP = 50;
 
   const grid = useRef(document.createElement('div'));
   const [styles, setStyles] = useState<styles>();
   const [players, setPlayers] = useState<Player[]>([]);
   const [limits, setLimits] = useState(0);
   const [ratio, setRatio] = useState(0);
+  const [gap, setGap] = useState(50);
 
   // Ratio effect
   useEffect(() => {
@@ -29,7 +29,7 @@ const Players: React.FC = () => {
       while (players.length > Math.pow(newRatio, 2)) newRatio++;
       setRatio(newRatio);
 
-      const totalGap = (newRatio - 1) * GAP;
+      const totalGap = (newRatio - 1) * gap;
 
       //gets the size of a square
       const getSize = (size: number) => {
@@ -67,7 +67,7 @@ const Players: React.FC = () => {
             {
               id: 36,
               player_type: 1,
-              name: 'Guestl',
+              name: '',
               state: 0,
               is_admin: 0,
               pick: 0,
@@ -90,13 +90,18 @@ const Players: React.FC = () => {
               ...styles,
               marginRight:
                 (i + 1) % ratio == 0 || i == players.length - 1
-                  ? 0 + 'px'
-                  : GAP + 'px',
-              marginBottom: i >= (ratio - 1) * ratio ? 0 : GAP + 'px',
+                  ? 0
+                  : gap + 'px',
+              marginBottom: i >= (ratio - 1) * ratio ? 0 : gap + 'px',
             }}
-            className="playerList__player"
+            className="playerCard"
           >
-            <div className="playerList__name">{player.name}</div>
+            <div className="playerCard__avatar"></div>
+            <div className="playerCard__name">{player.name}</div>
+            <div className="playerCard__stats">
+              {/* heart */}
+              {/* selection */}
+            </div>
           </div>
         ))}
       </div>

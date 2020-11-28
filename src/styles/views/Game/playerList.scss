@@ -1,5 +1,4 @@
 .playerList {
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,8 +10,10 @@
     align-items: center;
     justify-content: center;
 
-    & > * {
-      border: 1px solid #fff;
+    & .playerCard {
+      background-color: #fff;
+      border-radius: 4rem;
+      box-shadow: 0 0 4rem 0 rgba($color-purple, 1);
     }
   }
 
