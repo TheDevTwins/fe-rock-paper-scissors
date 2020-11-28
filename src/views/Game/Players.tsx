@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectors, PLAYER, PICKS, PLAYER_STATES } from 'state';
@@ -24,35 +24,36 @@ const Players: React.FC = () => {
 
   // Ratio effect
   useEffect(() => {
-    let newRatio = 0;
-    while (players.length > Math.pow(newRatio, 2)) newRatio++;
-    setRatio(newRatio);
+    const createGrid = () => {
+      let newRatio = 0;
+      while (players.length > Math.pow(newRatio, 2)) newRatio++;
+      setRatio(newRatio);
 
-    //gets the size of a square
-    const getSize = (size: number) => {
-      return size / newRatio;
+      //gets the size of a square
+      const getSize = (size: number) => {
+        return size / newRatio;
+      };
+
+      const newLimits = Math.min(
+        grid.current.clientWidth,
+        grid.current.clientHeight
+      );
+      const size = getSize(newLimits);
+      setLimits(newLimits);
+
+      setStyles({
+        width: size + 'px',
+        height: size + 'px',
+      });
     };
+    window.addEventListener('resize', createGrid);
 
-    // size relative to total width
-    let size = getSize(grid.current.clientWidth);
+    createGrid();
 
-    const actualHeight = Math.ceil(players.length / newRatio) * size;
-
-    // reset limits
-    let newLimits;
-    if (grid.current.clientHeight < actualHeight) {
-      size = getSize(grid.current.clientHeight);
-      newLimits = grid.current.clientHeight;
-    } else {
-      newLimits = actualHeight;
-    }
-    setLimits(newLimits);
-
-    setStyles({
-      width: size + 'px',
-      height: size + 'px',
-    });
-  }, [players]);
+    return () => {
+      window.removeEventListener('resize', createGrid);
+    };
+  }, [players, limits]);
 
   return (
     <div ref={grid} className="playerList">
@@ -76,7 +77,10 @@ const Players: React.FC = () => {
       >
         Click me
       </button>
-      <div style={{ width: limits + 'px' }} className="playerList__container">
+      <div
+        style={{ width: limits + 'px', height: limits + 'px' }}
+        className="playerList__container"
+      >
         {players.map((player, i) => (
           <div key={i} style={{ ...styles }} className="playerList__player">
             <div className="playerList__name">{player.name}</div>
