@@ -14,7 +14,7 @@ const Players: React.FC = () => {
     width: string;
     height: string;
   };
-  const GAP = 0;
+  const GAP = 50;
 
   const grid = useRef(document.createElement('div'));
   const [styles, setStyles] = useState<styles>();
@@ -29,9 +29,11 @@ const Players: React.FC = () => {
       while (players.length > Math.pow(newRatio, 2)) newRatio++;
       setRatio(newRatio);
 
+      const totalGap = (newRatio - 1) * GAP;
+
       //gets the size of a square
       const getSize = (size: number) => {
-        return size / newRatio;
+        return (size - totalGap) / newRatio;
       };
 
       const newLimits = Math.min(
@@ -82,7 +84,18 @@ const Players: React.FC = () => {
         className="playerList__container"
       >
         {players.map((player, i) => (
-          <div key={i} style={{ ...styles }} className="playerList__player">
+          <div
+            key={i}
+            style={{
+              ...styles,
+              marginRight:
+                (i + 1) % ratio == 0 || i == players.length - 1
+                  ? 0 + 'px'
+                  : GAP + 'px',
+              marginBottom: i >= (ratio - 1) * ratio ? 0 : GAP + 'px',
+            }}
+            className="playerList__player"
+          >
             <div className="playerList__name">{player.name}</div>
           </div>
         ))}
