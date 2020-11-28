@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectors, PLAYER, PICKS, PLAYER_STATES } from 'state';
 
 import { Player } from 'state';
+import { Avatar } from 'components';
 
 const Players: React.FC = () => {
   // const players = useSelector(selectors.playersList).filter(
@@ -25,11 +26,26 @@ const Players: React.FC = () => {
   // Ratio effect
   useEffect(() => {
     const createGrid = () => {
+      // Get ratio
       let newRatio = 0;
       while (players.length > Math.pow(newRatio, 2)) newRatio++;
       setRatio(newRatio);
 
-      const totalGap = (newRatio - 1) * gap;
+      // Get gap
+      const getGap = (
+        n: number,
+        start1: number,
+        stop1: number,
+        start2: number,
+        stop2: number
+      ) => {
+        return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
+      };
+
+      const newGap = getGap(ratio, 1, 6, 50, 10);
+      setGap(newGap);
+
+      const totalGap = (newRatio - 1) * newGap;
 
       //gets the size of a square
       const getSize = (size: number) => {
@@ -96,7 +112,11 @@ const Players: React.FC = () => {
             }}
             className="playerCard"
           >
-            <div className="playerCard__avatar"></div>
+            <div className="playerCard__avatar">
+              <div className="ratio">
+                <Avatar hat={0} face={0} skin={0} shirt={0} />
+              </div>
+            </div>
             <div className="playerCard__name">{player.name}</div>
             <div className="playerCard__stats">
               {/* heart */}
