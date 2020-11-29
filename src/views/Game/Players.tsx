@@ -71,7 +71,7 @@ const Players: React.FC = () => {
     return () => {
       window.removeEventListener('resize', createGrid);
     };
-  }, [players, limits, gap]);
+  }, [players, limits, gap, ratio]);
 
   return (
     <div ref={grid} className="playerList">

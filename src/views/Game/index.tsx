@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { selectors } from 'state';
+
+import Settings from 'assets/images/settings.png';
+import Chat from 'assets/images/chat.png';
 import Players from './Players';
 import Picks from './Picks';
 import Spectators from './Spectators';
-
-import { selectors } from 'state';
 
 const Game: React.FC = () => {
   // const { timer } = useSelector(selectors.session);
@@ -13,8 +15,12 @@ const Game: React.FC = () => {
   return (
     <div className="game defaultBg">
       <div className="sideBar">
-        <div className="sideBar__item">1</div>
-        <div className="sideBar__item">2</div>
+        <div className="sideBar__item">
+          <img src={Chat} alt="Chat icon" />
+        </div>
+        <div className="sideBar__item">
+          <img src={Settings} alt="Settings icon" />
+        </div>
       </div>
 
       <div className="actionBar">
