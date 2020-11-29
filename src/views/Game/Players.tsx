@@ -71,7 +71,7 @@ const Players: React.FC = () => {
     return () => {
       window.removeEventListener('resize', createGrid);
     };
-  }, [players, limits]);
+  }, [players, limits, gap]);
 
   return (
     <div ref={grid} className="playerList">
@@ -83,7 +83,7 @@ const Players: React.FC = () => {
             {
               id: 36,
               player_type: 1,
-              name: '',
+              name: 'tencharsww',
               state: 0,
               is_admin: 0,
               pick: 0,
@@ -119,8 +119,8 @@ const Players: React.FC = () => {
             </div>
             <div className="playerCard__name">{player.name}</div>
             <div className="playerCard__stats">
-              {/* heart */}
-              {/* selection */}
+              <div>HP</div>
+              <div>Option</div>
             </div>
           </div>
         ))}

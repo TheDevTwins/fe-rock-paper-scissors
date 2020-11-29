@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   &__container {
     display: flex;
@@ -12,8 +13,7 @@
 
     & .playerCard {
       background-color: #fff;
-      border-radius: 4rem;
-      box-shadow: 0 0 4rem 0 rgba($color-purple, 1);
+      border-radius: 30%;
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -26,6 +26,14 @@
         & .ratio {
           width: 100%;
           height: 56.25%;
+        }
+      }
+
+      &__stats {
+        display: flex;
+
+        & > *:not(:last-child) {
+          margin-right: 2rem;
         }
       }
     }
