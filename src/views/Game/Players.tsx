@@ -11,70 +11,10 @@ const Players: React.FC = () => {
   //   p => p.player_type === PLAYER
   // );
 
-  type styles = {
-    width: string;
-    height: string;
-  };
-
-  const grid = useRef(document.createElement('div'));
-  const [styles, setStyles] = useState<styles>();
   const [players, setPlayers] = useState<Player[]>([]);
-  const [limits, setLimits] = useState(0);
-  const [ratio, setRatio] = useState(0);
-  const [gap, setGap] = useState(50);
-
-  // Ratio effect
-  useEffect(() => {
-    const createGrid = () => {
-      // Get ratio
-      let newRatio = 0;
-      while (players.length > Math.pow(newRatio, 2)) newRatio++;
-      setRatio(newRatio);
-
-      // Get gap
-      const getGap = (
-        n: number,
-        start1: number,
-        stop1: number,
-        start2: number,
-        stop2: number
-      ) => {
-        return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
-      };
-
-      const newGap = getGap(ratio, 1, 6, 50, 10);
-      setGap(newGap);
-
-      const totalGap = (newRatio - 1) * newGap;
-
-      //gets the size of a square
-      const getSize = (size: number) => {
-        return (size - totalGap) / newRatio;
-      };
-
-      const newLimits = Math.min(
-        grid.current.clientWidth,
-        grid.current.clientHeight
-      );
-      const size = getSize(newLimits);
-      setLimits(newLimits);
-
-      setStyles({
-        width: size + 'px',
-        height: size + 'px',
-      });
-    };
-    window.addEventListener('resize', createGrid);
-
-    createGrid();
-
-    return () => {
-      window.removeEventListener('resize', createGrid);
-    };
-  }, [players, limits, gap, ratio]);
 
   return (
-    <div ref={grid} className="playerList">
+    <div className="playerList">
       <button
         className="playerList__demo"
         onClick={() => {
@@ -93,38 +33,22 @@ const Players: React.FC = () => {
           ]);
         }}
       >
-        Click me
+        Add a player
       </button>
-      <div
-        style={{ width: limits + 'px', height: limits + 'px' }}
-        className="playerList__container"
-      >
-        {players.map((player, i) => (
-          <div
-            key={i}
-            style={{
-              ...styles,
-              marginRight:
-                (i + 1) % ratio == 0 || i == players.length - 1
-                  ? 0
-                  : gap + 'px',
-              marginBottom: i >= (ratio - 1) * ratio ? 0 : gap + 'px',
-            }}
-            className="playerCard"
-          >
-            <div className="playerCard__avatar">
-              <div className="ratio">
-                <Avatar hat={0} face={0} skin={0} shirt={0} />
-              </div>
-            </div>
-            <div className="playerCard__name">{player.name}</div>
-            <div className="playerCard__stats">
-              <div>HP</div>
-              <div>Option</div>
+      {players.map((player, i) => (
+        <div key={i} className="playerCard">
+          <div className="playerCard__avatar">
+            <div className="ratio">
+              <Avatar hat={0} face={0} skin={0} shirt={0} />
             </div>
           </div>
-        ))}
-      </div>
+          <div className="playerCard__name">{player.name}</div>
+          <div className="playerCard__stats">
+            <div>HP</div>
+            <div>Option</div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

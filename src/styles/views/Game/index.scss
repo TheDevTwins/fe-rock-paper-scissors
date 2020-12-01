@@ -1,24 +1,4 @@
 @import './actionBar.scss';
 @import './sideBar.scss';
 @import './playerList.scss';
-
-.game {
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 7rem 1fr 7rem;
-  grid-template-rows: 7rem 1fr 7rem;
-  gap: 5rem;
-
-  & .actionBar {
-    grid-area: 3 / 2 / 4 / 3;
-  }
-
-  & .sideBar {
-    grid-area: 2 / 3 / 3 / 4;
-  }
-
-  & .playerList {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-}
+@import './game.scss';

@@ -1,40 +1,30 @@
 .playerList {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 
-  &__container {
+  & .playerCard {
+    background-color: #fff;
+    border-radius: 30%;
+    padding: 1rem;
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 
-    & .playerCard {
-      background-color: #fff;
-      border-radius: 30%;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
+    &__avatar {
+      width: 40%;
 
-      &__avatar {
-        width: 40%;
-
-        & .ratio {
-          width: 100%;
-          height: 56.25%;
-        }
+      & .ratio {
+        width: 100%;
+        height: 56.25%;
       }
+    }
 
-      &__stats {
-        display: flex;
+    &__stats {
+      display: flex;
 
-        & > *:not(:last-child) {
-          margin-right: 2rem;
-        }
+      & > *:not(:last-child) {
+        margin-right: 2rem;
       }
     }
   }
