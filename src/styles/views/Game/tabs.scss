@@ -1,7 +1,9 @@
 .tabs {
   &__tab {
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
     height: 100%;
-    padding: 2rem;
+    padding: 3rem;
     background: #fff
       linear-gradient(rgba($color-blue, 0.1), rgba($color-blue, 0.1));
   }

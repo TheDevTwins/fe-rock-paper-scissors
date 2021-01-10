@@ -6,7 +6,7 @@ import { selectors } from 'state';
 import Players from './Players';
 import Picks from './Picks';
 import Spectators from './Spectators';
-import TabsMenu from './Tabs';
+import Tabs from './Tabs';
 import Navigation from './Navigation';
 import { Chat } from 'components';
 
@@ -21,7 +21,14 @@ const Game: React.FC = () => {
   return (
     <div className="game defaultBg">
       <Navigation />
-      <TabsMenu tabs={tabs} option="Chat" />
+      <Tabs tabs={tabs} option="Chat" />
+
+      <div className="game__main">
+        <div className="players"></div>
+        <div className="picks"></div>
+      </div>
+
+      <div className="stats"></div>
     </div>
   );
 };
