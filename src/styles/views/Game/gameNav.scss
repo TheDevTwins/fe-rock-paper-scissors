@@ -1,0 +1,39 @@
+.gameNav {
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0 0 0.5rem 0.5rem rgba($color-blue, 0.1);
+
+  &__buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__btn {
+    padding: 3rem;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color-blue, 0.1);
+    }
+
+    & img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  & .logo {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform-origin: left center;
+    transform: rotate(90deg);
+
+    & > * {
+      color: $color-blue;
+    }
+  }
+}

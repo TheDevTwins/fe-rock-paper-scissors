@@ -6,15 +6,22 @@ import { selectors } from 'state';
 import Players from './Players';
 import Picks from './Picks';
 import Spectators from './Spectators';
-import TabsMenu from './TabsMenu';
+import TabsMenu from './Tabs';
+import Navigation from './Navigation';
+import { Chat } from 'components';
 
 const Game: React.FC = () => {
   // const { timer } = useSelector(selectors.session);
 
+  const tabs = [
+    { key: 'Chat', value: <Chat /> },
+    { key: 'Settings', value: <div>Settings</div> },
+  ];
+
   return (
     <div className="game defaultBg">
-      <TabsMenu className="game__tabs" />
-      <div className="game__main"></div>
+      <Navigation />
+      <TabsMenu tabs={tabs} option="Chat" />
     </div>
   );
 };

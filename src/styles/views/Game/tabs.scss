@@ -1,0 +1,8 @@
+.tabs {
+  &__tab {
+    height: 100%;
+    padding: 2rem;
+    background: #fff
+      linear-gradient(rgba($color-blue, 0.1), rgba($color-blue, 0.1));
+  }
+}
