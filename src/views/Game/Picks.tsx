@@ -6,18 +6,19 @@ import { PICKS, selectors, makePick } from 'state';
 
 const Picks: React.FC = () => {
   const dispatch = useDispatch();
-  const { timer } = useSelector(selectors.session);
+  //const { timer } = useSelector(selectors.session);
 
   const [pick, setPick] = useState('');
 
-  useEffect(() => {
-    if (!timer) setPick('');
-  }, [timer]);
+  // useEffect(() => {
+  //   if (!timer) setPick('');
+  // }, [timer]);
 
   return (
-    <div>
+    <div className="picks">
       {Object.entries(PICKS).map(([key, name]) => (
         <Button
+          className="picks__btn"
           key={key}
           onClick={() => {
             dispatch(makePick({ pick: parseInt(key) }));

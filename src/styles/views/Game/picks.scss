@@ -1,0 +1,19 @@
+.picks {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+
+  &__btn {
+    flex: 1;
+
+    //reset
+    height: 100%;
+    border: 0;
+    background: none;
+
+    //custom
+    &:not(:last-child) {
+      border-right: 0.2rem solid rgba(#000, 0.1);
+    }
+  }
+}

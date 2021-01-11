@@ -11,7 +11,7 @@ import Navigation from './Navigation';
 import { Chat } from 'components';
 
 const Game: React.FC = () => {
-  // const { timer } = useSelector(selectors.session);
+  //const { timer } = useSelector(selectors.session);
 
   const tabs = [
     { key: 'Chat', value: <Chat /> },
@@ -23,12 +23,14 @@ const Game: React.FC = () => {
       <Navigation />
       <Tabs tabs={tabs} option="Chat" />
 
-      <div className="game__main">
+      <div className="game__panel game__main">
         <Players />
-        <div className="picks"></div>
+        <Picks />
       </div>
 
-      <div className="stats"></div>
+      <div className="game__panel">
+        <div className="stats"></div>
+      </div>
     </div>
   );
 };

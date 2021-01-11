@@ -4,12 +4,12 @@
   display: grid;
   grid-template-columns: 10rem 45rem 50rem 1fr;
 
-  & .tabs {
-    height: 100%;
-  }
+  &__panel {
+    padding: 3rem;
 
-  & .chat {
-    height: 100%;
+    &:last-child {
+      padding-left: 0;
+    }
   }
 
   &__main {
@@ -17,24 +17,20 @@
     display: grid;
     grid-template-rows: 1fr 7rem;
     row-gap: 3rem;
-    padding: 3rem;
-
-    & > * {
-      border-radius: 2rem;
-    }
   }
 
-  & .players {
-    background-color: #fff;
-  }
-
-  & .picks {
-    background-color: #fff;
+  & .chat {
+    height: 100%;
   }
 
   & .stats {
+    height: 100%;
+  }
+
+  & .picks,
+  & .players,
+  & .stats {
     background-color: #fff;
-    margin: 3rem 3rem 3rem 0;
     border-radius: 2rem;
   }
 }
