@@ -14,9 +14,9 @@ const Players: React.FC = () => {
   const [players, setPlayers] = useState<Player[]>([]);
 
   return (
-    <div className="playerList">
+    <div className="players scroll">
       <button
-        className="playerList__demo"
+        className="players__demo"
         onClick={() => {
           setPlayers([
             ...players,
@@ -35,20 +35,18 @@ const Players: React.FC = () => {
       >
         Add a player
       </button>
-      {players.map((player, i) => (
-        <div key={i} className="playerCard">
-          <div className="playerCard__avatar">
-            <div className="ratio">
+      <div className="scroll__container">
+        {players.map((player, i) => (
+          <div key={i} className="playerItem">
+            <div className="playerItem__avatar">
               <Avatar hat={0} face={0} skin={0} shirt={0} />
             </div>
-          </div>
-          <div className="playerCard__name">{player.name}</div>
-          <div className="playerCard__stats">
+            <div className="playerItem__name">{player.name}</div>
             <div>HP</div>
             <div>Option</div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

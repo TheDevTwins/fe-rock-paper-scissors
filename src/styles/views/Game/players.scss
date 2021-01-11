@@ -1,0 +1,25 @@
+.players {
+  border: 1rem solid #fff;
+
+  & .playerItem {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    &__avatar {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  &__demo {
+    position: fixed;
+    top: 5rem;
+    left: 5rem;
+  }
+}

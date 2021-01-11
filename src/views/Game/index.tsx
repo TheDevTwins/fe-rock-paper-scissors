@@ -24,7 +24,7 @@ const Game: React.FC = () => {
       <Tabs tabs={tabs} option="Chat" />
 
       <div className="game__main">
-        <div className="players"></div>
+        <Players />
         <div className="picks"></div>
       </div>
 
