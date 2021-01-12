@@ -1,9 +1,14 @@
 .stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   &__announce {
     font-family: $font-2;
     font-size: 4rem;
     color: $color-blue;
     text-align: center;
+    margin-bottom: 0;
   }
 
   &__container {
