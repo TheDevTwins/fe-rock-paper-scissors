@@ -31,3 +31,13 @@ export const PLAYER_STATES = {
   [LOST]: 'lost',
   [WON]: 'won',
 };
+
+export const COLORS = {
+  colorBlue: '#83b2ff',
+  colorPurple: '#9b6ef3',
+  colorGreen: '#8bf18b',
+  colorYellow: '#ffe981',
+  colorOrange: '#ff8650',
+  colorRed: '#ff555e',
+  colorGrey: '#2b2b2b',
+};

@@ -1,0 +1,53 @@
+.stats {
+  &__announce {
+    font-family: $font-2;
+    font-size: 4rem;
+    color: $color-blue;
+    text-align: center;
+  }
+
+  &__container {
+    & > *:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  &__percentage {
+  }
+
+  &__group {
+    background-color: $color-blue;
+    display: flex;
+    align-items: center;
+    border-radius: 3.5rem;
+    overflow: hidden;
+    padding: 0.5rem;
+    padding-left: 2rem;
+  }
+
+  &__icon {
+  }
+
+  &__counter {
+    padding: 2rem;
+    padding-right: 2.5rem;
+    margin-left: 1rem;
+    background-color: #fff;
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+    font-family: $font-2;
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  & .ant-progress-text {
+    font-family: $font-2;
+    font-size: 3rem;
+  }
+}
