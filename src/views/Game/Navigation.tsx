@@ -4,16 +4,16 @@ import { Logo } from 'components';
 
 import { useTabDispatch, useTabState } from './TabProvider';
 
-const makeBtn = (src: string, click: () => void) => {
+const makeBtn = (src: string, click: () => void, isActive: boolean) => {
   return (
-    <div className="gameNav__btn" onClick={click}>
+    <div className={`gameNav__btn ${isActive ? 'active' : ''}`} onClick={click}>
       <img src={src} alt="Settings" />
     </div>
   );
 };
 
 const Navigation: React.FC = () => {
-  const { tabs } = useTabState();
+  const { tabs, option } = useTabState();
   const dispatch = useTabDispatch();
 
   return (
@@ -22,9 +22,13 @@ const Navigation: React.FC = () => {
 
       <div className="gameNav__buttons">
         {tabs.map(({ key, value, icon }) => {
-          return makeBtn(icon, () => {
-            dispatch({ option: key });
-          });
+          return makeBtn(
+            icon,
+            () => {
+              dispatch({ option: key });
+            },
+            option === key
+          );
         })}
       </div>
     </div>

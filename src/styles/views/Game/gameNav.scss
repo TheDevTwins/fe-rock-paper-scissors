@@ -14,7 +14,8 @@
     transition: all 0.2s;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &.active {
       background-color: rgba($color-blue, 0.1);
     }
 
