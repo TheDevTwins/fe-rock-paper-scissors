@@ -2,8 +2,11 @@ import React from 'react';
 
 import { Logo } from 'components';
 
-import SettingsIcon from 'assets/images/settings.png';
-import ChatIcon from 'assets/images/chat.png';
+import { TABS } from './index';
+
+type props = {
+  callback: React.Dispatch<React.SetStateAction<string>>;
+};
 
 const makeBtn = (src: string, click: () => void) => {
   return (
@@ -13,14 +16,15 @@ const makeBtn = (src: string, click: () => void) => {
   );
 };
 
-const Navigation: React.FC = () => {
+const Navigation: React.FC<props> = ({ callback }) => {
   return (
     <div className="gameNav">
       <Logo />
 
       <div className="gameNav__buttons">
-        {makeBtn(SettingsIcon, () => null)}
-        {makeBtn(ChatIcon, () => null)}
+        {TABS.map(({ key, value, icon }) => {
+          return makeBtn(icon, () => callback(key));
+        })}
       </div>
     </div>
   );
