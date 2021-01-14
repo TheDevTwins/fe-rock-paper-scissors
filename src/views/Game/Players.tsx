@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectors, PLAYER, PICKS, PLAYER_STATES } from 'state';
 
+import ROCK from 'assets/images/rock.png';
+import PAPAER from 'assets/images/paper.png';
+import SCISSORS from 'assets/images/scissors.png';
+
 import { Player } from 'state';
-import { Avatar } from 'components';
+import { Avatar, HP } from 'components';
 
 const Players: React.FC = () => {
   // const players = useSelector(selectors.playersList).filter(
@@ -13,37 +17,35 @@ const Players: React.FC = () => {
 
   const [players, setPlayers] = useState<Player[]>([]);
 
+  useEffect(() => {
+    const mockPlayer = {
+      id: 36,
+      player_type: 1,
+      name: 'Player Name',
+      state: 0,
+      is_admin: 0,
+      pick: 0,
+      points: 10,
+      avatar: { hat: 0, face: 0, skin: 0, shirt: 0 },
+    };
+    const newArray = [];
+    for (let i = 0; i < 20; i++) {
+      newArray.push(mockPlayer);
+    }
+    setPlayers(newArray);
+  }, []);
+
   return (
     <div className="players scroll">
-      <button
-        className="players__demo"
-        onClick={() => {
-          setPlayers([
-            ...players,
-            {
-              id: 36,
-              player_type: 1,
-              name: 'tencharsww',
-              state: 0,
-              is_admin: 0,
-              pick: 0,
-              points: 10,
-              avatar: { hat: 0, face: 0, skin: 0, shirt: 0 },
-            },
-          ]);
-        }}
-      >
-        Add a player
-      </button>
       <div className="scroll__container">
         {players.map((player, i) => (
-          <div key={i} className="playerItem">
-            <div className="playerItem__avatar">
-              <Avatar hat={0} face={0} skin={0} shirt={0} />
+          <div key={i} className="playerLI">
+            <div className="playerLI__avatar">
+              <Avatar {...player.avatar} />
             </div>
-            <div className="playerItem__name">{player.name}</div>
-            <div>HP</div>
-            <div>Option</div>
+            <div className="playerLI__name">{player.name}</div>
+            <HP points={10} />
+            <img className="playerLI__pick" src={SCISSORS} alt="pick" />
           </div>
         ))}
       </div>
