@@ -22,6 +22,16 @@ export const PICKS = {
   [SCISSORS]: 'scissors',
 };
 
+import RockIcon from 'assets/images/rock.png';
+import PaperIcon from 'assets/images/paper.png';
+import ScissorsIcon from 'assets/images/scissors.png';
+
+export const ICONS = {
+  [ROCK]: RockIcon,
+  [PAPER]: PaperIcon,
+  [SCISSORS]: ScissorsIcon,
+};
+
 export const IN_GAME = 0;
 export const LOST = 1;
 export const WON = 2;
