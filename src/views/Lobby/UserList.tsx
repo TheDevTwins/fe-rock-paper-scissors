@@ -8,12 +8,20 @@ import { CrownOutlined } from '@ant-design/icons';
 const UserList: React.FC = () => {
   const players = useSelector(selectors.playersList);
   const comparePlayers: (a: Player, b: Player) => number = (a, b) => {
-    return a.player_type == b.player_type
-      ? 0
-      : a.player_type < b.player_type
+    const [type1, type2] = [a.player_type, b.player_type];
+    const [name1, name2] = [a.name, b.name];
+
+    return type1 === type2
+      ? name1 === name2
+        ? 0
+        : name1 < name2
+        ? -1
+        : 1
+      : type1 < type2
       ? -1
       : 1;
   };
+
   players.sort(comparePlayers);
 
   const isAdmin = useSelector(selectors.isAdmin);
