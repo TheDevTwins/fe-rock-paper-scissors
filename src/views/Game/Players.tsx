@@ -20,7 +20,7 @@ const Players: React.FC = () => {
   useEffect(() => {
     const mockPlayer = {
       id: 36,
-      player_type: 1,
+      player_type: 0,
       name: 'Player Name',
       state: 0,
       is_admin: 0,

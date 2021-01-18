@@ -118,9 +118,11 @@ const Lobby: React.FC = () => {
     <div className="lobby defaultBg">
       <header className="wrapper lobby__header">
         <Logo />
-        <div className="startGame" onClick={() => dispatch(startGame({}))}>
-          Start Game
-        </div>
+        {!isAdmin ? null : (
+          <div className="startGame" onClick={() => dispatch(startGame({}))}>
+            Start Game
+          </div>
+        )}
         <ShareLink />
       </header>
       <div className="wrapper">

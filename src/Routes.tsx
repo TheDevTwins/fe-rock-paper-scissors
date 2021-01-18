@@ -14,9 +14,7 @@ const Routes: React.FC = () => {
     <Switch>
       <Route exact path="/session/:id">
         <DataRetriever />
-        {/* Fix this when design is over */}
-        {/* {!session || session.status === PENDING ? <Lobby /> : <Game />} */}
-        <Game />
+        {!session || session.status === PENDING ? <Lobby /> : <Game />}
       </Route>
       {session && <Redirect to={`/session/${session.id}`} />}
       <Route exact path="/">

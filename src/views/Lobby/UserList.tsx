@@ -8,11 +8,11 @@ import { CrownOutlined } from '@ant-design/icons';
 const UserList: React.FC = () => {
   const players = useSelector(selectors.playersList);
   const comparePlayers: (a: Player, b: Player) => number = (a, b) => {
-    if (a.player_type > b.player_type) {
-      return -1;
-    } else if (a.player_type < b.player_type) {
-      return 1;
-    } else return 0;
+    return a.player_type == b.player_type
+      ? 0
+      : a.player_type < b.player_type
+      ? -1
+      : 1;
   };
   players.sort(comparePlayers);
 
@@ -35,7 +35,7 @@ const UserList: React.FC = () => {
             </div>
             <div
               className={`userList__type ${
-                player.player_type ? 'player' : 'spectator'
+                player.player_type ? 'spectator' : 'player'
               }`}
             />
             {isAdmin && !player.is_admin && <div className="userList__kick" />}
