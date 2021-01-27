@@ -138,5 +138,7 @@ appManager.createSocketListener<
 
 appManager.createSocketListener<{ value: number }, AppState>(
   'timer_updated',
-  (state, result) => (state.session.timer = result.value)
+  (state, result) => {
+    state.session.timer = result.value;
+  }
 );

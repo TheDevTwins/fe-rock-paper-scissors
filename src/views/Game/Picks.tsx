@@ -6,13 +6,13 @@ import { PICKS, ICONS, selectors, makePick } from 'state';
 
 const Picks: React.FC = () => {
   const dispatch = useDispatch();
-  //const { timer } = useSelector(selectors.session);
+  const { timer } = useSelector(selectors.session);
 
   const [pick, setPick] = useState('');
 
-  // useEffect(() => {
-  //   if (!timer) setPick('');
-  // }, [timer]);
+  useEffect(() => {
+    if (!timer) setPick('');
+  }, [timer]);
 
   return (
     <div className="picks">

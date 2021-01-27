@@ -1,15 +1,8 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
 
 import { Tabs } from 'antd';
-import {
-  connectToSessionSocket,
-  disconnectFromSessionSocket,
-  retrieveSession,
-  selectors,
-  startGame,
-} from 'state';
+import { selectors, startGame } from 'state';
 
 import { Logo, Chat } from 'components';
 import UserCustomization from './UserCustomization';

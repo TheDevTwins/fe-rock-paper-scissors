@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Progress } from 'antd';
 
 import { COLORS, selectors } from 'state';
@@ -8,9 +9,11 @@ import Rock from 'assets/images/rock.png';
 import Paper from 'assets/images/paper.png';
 import Scissors from 'assets/images/scissors.png';
 import None from 'assets/images/none.png';
-import { useSelector } from 'react-redux';
 
 const Stats: React.FC = () => {
+  const session = useSelector(selectors.session);
+  const timer = session.timer;
+
   const makePercentage = (
     percent: number,
     count: number,
@@ -38,7 +41,7 @@ const Stats: React.FC = () => {
 
   return (
     <div className="stats">
-      <h3 className="stats__announce">Game starts in 5 seconds.</h3>
+      <h3 className="stats__announce">Game starts in {timer} seconds.</h3>
       <div className="stats__container">
         {[
           { percent: 33, count: 5, src: Rock },
@@ -60,7 +63,7 @@ const Stats: React.FC = () => {
               <div className="hp__counter">{crtPlayer?.points}</div>
             </div>
             <img
-              src={crtPlayer?.pick ? Rock : None}
+              src={crtPlayer.pick ? Rock : None}
               alt="icon"
               className="crtPlayer__pick"
             />
