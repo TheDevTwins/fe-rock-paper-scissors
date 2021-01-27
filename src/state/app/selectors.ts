@@ -22,3 +22,7 @@ export const localMessages = (state: StoreState) => {
 export const offlinePlayers = (state: StoreState) => {
   return state.app.offline.players;
 };
+
+export const picks_revealed = (state: StoreState) => {
+  return state.app.received_picks;
+};

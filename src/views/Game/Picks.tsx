@@ -31,7 +31,7 @@ const Picks: React.FC = () => {
             <img
               className="picks__icon"
               src={icon}
-              alt={Object.values(PICKS)[parseInt(key)]}
+              alt={(PICKS as any)[parseInt(key)]}
             />
           </Button>
         );

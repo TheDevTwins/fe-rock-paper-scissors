@@ -1,13 +1,16 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectors, PLAYER, PICKS, PLAYER_STATES, SPECTATOR } from 'state';
-
-import ROCK from 'assets/images/rock.png';
-import PAPAER from 'assets/images/paper.png';
-import SCISSORS from 'assets/images/scissors.png';
-
-import { Player } from 'state';
+import {
+  selectors,
+  PLAYER,
+  PICKS,
+  ICONS,
+  PLAYER_STATES,
+  SPECTATOR,
+  Player,
+} from 'state';
+import None from 'assets/images/none.png';
 import { Avatar, HP } from 'components';
 
 const Players: React.FC = () => {
@@ -25,6 +28,8 @@ const Players: React.FC = () => {
       ? -1
       : 1;
   });
+
+  const picks_revealed = useSelector(selectors.picks_revealed);
 
   // const [players, setPlayers] = useState<Player[]>([]);
 
@@ -57,8 +62,16 @@ const Players: React.FC = () => {
             <div className="playerLI__name">{player.name}</div>
             {player.player_type === SPECTATOR ? null : (
               <>
-                <HP points={10} />
-                <img className="playerLI__pick" src={SCISSORS} alt="pick" />
+                <HP points={player.points} />
+                <img
+                  className="playerLI__pick"
+                  src={
+                    picks_revealed && typeof player.pick === 'number'
+                      ? (ICONS as any)[player.pick]
+                      : None
+                  }
+                  alt="pick"
+                />
               </>
             )}
           </div>

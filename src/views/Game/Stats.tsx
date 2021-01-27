@@ -2,12 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Progress } from 'antd';
 
-import { COLORS, selectors } from 'state';
+import { COLORS, selectors, ROCK, PAPER, SCISSORS, ICONS } from 'state';
 import { Avatar } from 'components';
-
-import Rock from 'assets/images/rock.png';
-import Paper from 'assets/images/paper.png';
-import Scissors from 'assets/images/scissors.png';
 import None from 'assets/images/none.png';
 
 const Stats: React.FC = () => {
@@ -44,9 +40,9 @@ const Stats: React.FC = () => {
       <h3 className="stats__announce">Game starts in {timer} seconds.</h3>
       <div className="stats__container">
         {[
-          { percent: 33, count: 5, src: Rock },
-          { percent: 33, count: 5, src: Paper },
-          { percent: 33, count: 5, src: Scissors },
+          { percent: 33, count: 5, src: ICONS[ROCK] },
+          { percent: 33, count: 5, src: ICONS[PAPER] },
+          { percent: 33, count: 5, src: ICONS[SCISSORS] },
         ].map(({ percent, count, src }, i) => {
           return makePercentage(percent, count, src, i);
         })}
@@ -63,7 +59,11 @@ const Stats: React.FC = () => {
               <div className="hp__counter">{crtPlayer?.points}</div>
             </div>
             <img
-              src={crtPlayer.pick ? Rock : None}
+              src={
+                typeof crtPlayer.pick === 'number'
+                  ? (ICONS as any)[crtPlayer.pick]
+                  : None
+              }
               alt="icon"
               className="crtPlayer__pick"
             />

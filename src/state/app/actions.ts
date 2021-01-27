@@ -114,6 +114,23 @@ appManager.createSocketListener<unknown, AppState>(
   }
 );
 
+appManager.createSocketListener<null, AppState>(
+  'started_playing',
+  (state, result) => {
+    state.received_picks = false;
+    Object.values(state.players).forEach(player => {
+      player.pick = false;
+    });
+  }
+);
+
+appManager.createSocketListener<null, AppState>(
+  'started_waiting',
+  (state, result) => {
+    state.received_picks = true;
+  }
+);
+
 export const makePick = appManager.createSocketAction<{ pick: number }>(
   'make_pick'
 );
