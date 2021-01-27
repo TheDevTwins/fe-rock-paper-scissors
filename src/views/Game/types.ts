@@ -4,6 +4,12 @@ export type Tab = {
   icon: string; // Img source
 };
 
+export type Stat = {
+  index: number;
+  count: number;
+  percentage: number;
+};
+
 // TabProvider
 
 export type State = {

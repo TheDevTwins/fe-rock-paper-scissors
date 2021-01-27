@@ -49,5 +49,5 @@ export const COLORS = {
   colorYellow: '#ffe981',
   colorOrange: '#ff8650',
   colorRed: '#ff555e',
-  colorGrey: '#2b2b2b',
+  colorGrey: 'rgb(92, 92, 92)',
 };
