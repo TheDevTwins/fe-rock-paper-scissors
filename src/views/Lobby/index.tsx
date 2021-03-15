@@ -1,15 +1,8 @@
 import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
 
 import { Tabs } from 'antd';
-import {
-  connectToSessionSocket,
-  disconnectFromSessionSocket,
-  retrieveSession,
-  selectors,
-  startGame,
-} from 'state';
+import { selectors, startGame } from 'state';
 
 import { Logo, Chat } from 'components';
 import UserCustomization from './UserCustomization';
@@ -118,9 +111,11 @@ const Lobby: React.FC = () => {
     <div className="lobby defaultBg">
       <header className="wrapper lobby__header">
         <Logo />
-        <div className="startGame" onClick={() => dispatch(startGame({}))}>
-          Start Game
-        </div>
+        {!isAdmin ? null : (
+          <div className="startGame" onClick={() => dispatch(startGame({}))}>
+            Start Game
+          </div>
+        )}
         <ShareLink />
       </header>
       <div className="wrapper">

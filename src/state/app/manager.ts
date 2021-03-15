@@ -12,6 +12,7 @@ export type AppState = {
   offline: {
     players: IndexedArray<types.Player>;
   };
+  received_picks: boolean;
 };
 
 export const appManager = new StateManager({
@@ -24,5 +25,6 @@ export const appManager = new StateManager({
     offline: {
       players: {},
     },
+    received_picks: false,
   },
 });

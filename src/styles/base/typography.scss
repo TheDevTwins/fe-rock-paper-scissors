@@ -1,6 +1,10 @@
 .heading-secondary {
-    font-size: 2.5rem;
-    font-family: $font-2;
-    color: #fff;
-    letter-spacing: .1rem;
+  font-size: 2.5rem;
+  font-family: $font-2;
+  color: #fff;
+  letter-spacing: 0.1rem;
+
+  &--blue {
+    color: $color-blue;
+  }
 }

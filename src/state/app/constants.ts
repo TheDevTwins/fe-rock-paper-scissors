@@ -22,6 +22,16 @@ export const PICKS = {
   [SCISSORS]: 'scissors',
 };
 
+import RockIcon from 'assets/images/rock.png';
+import PaperIcon from 'assets/images/paper.png';
+import ScissorsIcon from 'assets/images/scissors.png';
+
+export const ICONS = {
+  [ROCK]: RockIcon,
+  [PAPER]: PaperIcon,
+  [SCISSORS]: ScissorsIcon,
+};
+
 export const IN_GAME = 0;
 export const LOST = 1;
 export const WON = 2;
@@ -30,4 +40,14 @@ export const PLAYER_STATES = {
   [IN_GAME]: 'in game',
   [LOST]: 'lost',
   [WON]: 'won',
+};
+
+export const COLORS = {
+  colorBlue: '#83b2ff',
+  colorPurple: '#9b6ef3',
+  colorGreen: '#8bf18b',
+  colorYellow: '#ffe981',
+  colorOrange: '#ff8650',
+  colorRed: '#ff555e',
+  colorGrey: 'rgb(92, 92, 92)',
 };

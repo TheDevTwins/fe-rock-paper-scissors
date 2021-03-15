@@ -110,8 +110,24 @@ export const startGame = appManager.createSocketAction('start_game');
 appManager.createSocketListener<unknown, AppState>(
   'game_started',
   (state, result) => {
-    // remove this when design is over
     if (state.session) state.session.status = PLAYING;
+  }
+);
+
+appManager.createSocketListener<null, AppState>(
+  'started_playing',
+  (state, result) => {
+    state.received_picks = false;
+    Object.values(state.players).forEach(player => {
+      player.pick = false;
+    });
+  }
+);
+
+appManager.createSocketListener<null, AppState>(
+  'started_waiting',
+  (state, result) => {
+    state.received_picks = true;
   }
 );
 
@@ -139,5 +155,7 @@ appManager.createSocketListener<
 
 appManager.createSocketListener<{ value: number }, AppState>(
   'timer_updated',
-  (state, result) => (state.session.timer = result.value)
+  (state, result) => {
+    state.session.timer = result.value;
+  }
 );

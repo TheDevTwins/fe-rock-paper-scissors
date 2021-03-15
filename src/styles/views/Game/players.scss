@@ -1,0 +1,38 @@
+.players {
+  border: 1rem solid #fff;
+  position: relative;
+  border-radius: 2rem;
+  // overflow: hidden;
+
+  & .scroll__container {
+    border-radius: 2rem;
+    padding: 0.5rem 0.1rem 0.5rem 0;
+  }
+
+  & .playerLI {
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-template-columns: 4rem 2fr 1fr 5rem;
+    align-items: center;
+    column-gap: 2rem;
+
+    &:nth-child(even) {
+      background-color: rgb(247, 247, 247);
+    }
+
+    &__avatar {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    & .hp {
+      font-size: 3rem;
+    }
+
+    &__pick {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.hp {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    background-color: $color-red;
+    display: inline-block;
+    height: 0.5em;
+    width: 0.5em;
+    margin-left: 0.15em;
+    margin-top: 0.05em;
+    position: relative;
+    transform: rotate(-45deg);
+
+    &:before,
+    &:after {
+      content: '';
+      background-color: $color-red;
+      border-radius: 50%;
+      height: 0.5em;
+      position: absolute;
+      width: 0.5em;
+    }
+
+    &:before {
+      top: -0.25em;
+      left: 0;
+    }
+
+    &:after {
+      left: 0.25em;
+      top: 0;
+    }
+  }
+
+  &__counter {
+    font-family: $font-2;
+    font-size: 100%;
+    line-height: 1;
+    margin-left: 0.35em;
+  }
+}

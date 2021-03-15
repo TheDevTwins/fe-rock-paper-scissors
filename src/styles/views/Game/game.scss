@@ -1,0 +1,38 @@
+.game {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 10rem 45rem 50rem 50rem;
+  //modify this later for a responsive design
+
+  &__panel {
+    padding: 3rem;
+
+    &:last-child {
+      padding-left: 0;
+    }
+  }
+
+  &__main {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 7rem;
+    row-gap: 3rem;
+  }
+
+  & .chat {
+    height: 100%;
+  }
+
+  & .stats {
+    height: 100%;
+    padding: 3rem;
+  }
+
+  & .picks,
+  & .players,
+  & .stats {
+    background-color: #fff;
+    border-radius: 2rem;
+  }
+}

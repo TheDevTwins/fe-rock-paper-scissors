@@ -1,0 +1,29 @@
+.crtPlayer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__avatar {
+    width: 10rem;
+    margin-right: 2rem;
+  }
+
+  &__name {
+    font-family: $font-2;
+    font-size: 3rem;
+  }
+
+  &__container {
+    &--row {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__pick {
+    display: block;
+    height: 5rem;
+    width: auto;
+    margin-left: 2rem;
+  }
+}
